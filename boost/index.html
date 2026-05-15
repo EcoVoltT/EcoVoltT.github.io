@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EcoVolt T Boost | AI Smart Charger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-lowest": "#0b0f0e",
+                      "secondary": "#b8cbbf",
+                      "on-tertiary-fixed": "#032013",
+                      "on-surface-variant": "#bec8d2",
+                      "surface-container-highest": "#313635",
+                      "on-primary": "#00344e",
+                      "surface-container-high": "#272b2a",
+                      "inverse-on-surface": "#2d3130",
+                      "error-container": "#93000a",
+                      "surface-tint": "#8aceff",
+                      "surface-dim": "#101413",
+                      "tertiary-container": "#85a490",
+                      "on-tertiary-container": "#1d3a2b",
+                      "on-secondary-container": "#aabdb1",
+                      "tertiary": "#aeceb9",
+                      "primary-fixed": "#c9e6ff",
+                      "on-secondary-fixed-variant": "#3a4a41",
+                      "secondary-fixed-dim": "#b8cbbf",
+                      "on-error": "#690005",
+                      "primary-container": "#00a6ed",
+                      "surface-variant": "#313635",
+                      "secondary-container": "#3c4d44",
+                      "outline": "#88932c",
+                      "background": "#101413",
+                      "inverse-surface": "#e0e3e1",
+                      "surface": "#101413",
+                      "error": "#ffb4ab",
+                      "outline-variant": "#3e4850",
+                      "on-background": "#e0e3e1",
+                      "on-tertiary-fixed-variant": "#304d3d",
+                      "on-primary-fixed-variant": "#004b6f",
+                      "tertiary-fixed-dim": "#aeceb9",
+                      "on-tertiary": "#1a3627",
+                      "tertiary-fixed": "#c9ead4",
+                      "surface-container": "#1c201f",
+                      "primary": "#8aceff",
+                      "surface-container-low": "#181c1b",
+                      "on-surface": "#e0e3e1",
+                      "on-primary-container": "#003853",
+                      "on-error-container": "#ffdad6",
+                      "on-primary-fixed": "#001e2f",
+                      "secondary-fixed": "#d4e7db",
+                      "surface-bright": "#363a39",
+                      "on-secondary": "#24342b",
+                      "on-secondary-fixed": "#0f1f17",
+                      "inverse-primary": "#006491",
+                      "primary-fixed-dim": "#8aceff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin": "40px",
+                      "gutter": "24px",
+                      "base": "8px",
+                      "xl": "80px",
+                      "md": "24px",
+                      "xs": "4px",
+                      "sm": "12px",
+                      "lg": "48px"
+              },
+              "fontFamily": {
+                      "label-caps": ["Inter"],
+                      "h3": ["Space Grotesk"],
+                      "h1": ["Space Grotesk"],
+                      "body-md": ["Inter"],
+                      "h2": ["Space Grotesk"],
+                      "body-lg": ["Inter"],
+                      "code": ["Space Grotesk"]
+              },
+              "fontSize": {
+                      "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "600"}],
+                      "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                      "h1": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "h2": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "code": ["14px", {"lineHeight": "1.4", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(13, 42, 28, 0.5);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .electric-glow {
+            box-shadow: 0 0 15px rgba(0, 166, 237, 0.3);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-[#0D2A1C]/80 backdrop-blur-xl border-b border-white/10 shadow-[0_0_20px_rgba(0,166,237,0.15)]">
+<nav class="flex justify-between items-center h-20 px-10 max-w-7xl mx-auto font-['Space_Grotesk'] tracking-tight">
+<div class="flex items-center gap-4">
+    <a href="/" class="text-2xl font-bold text-sky-400 tracking-tighter hover:text-sky-300 transition-colors">EcoVolt T</a>
+    <span class="hidden sm:inline text-white/20">|</span>
+    <a href="/" class="hidden sm:inline text-white/50 hover:text-white transition-colors flex items-center gap-2">
+        <span class="material-symbols-outlined text-sm">arrow_back</span>
+        Back to Home
+    </a>
+</div>
+<div class="hidden md:flex items-center gap-base">
+<a class="text-sky-400 font-bold border-b-2 border-sky-400 pb-1 px-4" href="/boost">Boost</a>
+<a class="text-white/70 font-medium hover:text-white transition-all duration-300 px-4" href="/shield">Shield</a>
+<a class="text-white/70 font-medium hover:text-white transition-all duration-300 px-4" href="/core">Core</a>
+<a class="text-white/70 font-medium hover:text-white transition-all duration-300 px-4" href="/#care">Care</a>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-bold active:scale-95 transition-transform hover:bg-sky-400/90">Get Started</button>
+</nav>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center px-margin py-xl overflow-hidden">
+<div class="absolute inset-0 z-0 opacity-20">
+<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-container/30 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-tertiary-container/20 blur-[100px] rounded-full"></div>
+</div>
+<div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-xl items-center relative z-10">
+<div class="space-y-md">
+<div class="inline-flex items-center gap-xs bg-primary-container/10 border border-primary-container/20 px-4 py-1 rounded-full text-primary-fixed-dim text-label-caps font-label-caps">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+                        NEXT-GEN ENERGY RECOVERY
+                    </div>
+<h1 class="font-h1 text-h1 text-on-surface">EcoVolt T Boost: <span class="text-primary-container">20% Capacity</span> Recovery.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                        The world's first AI Smart Charger that doesn't just fill your battery—it restores it. Using Active Capacity Recovery, Boost extends lifecycle duration by neutralizing chemical degradation in real-time.
+                    </p>
+<div class="flex flex-wrap gap-md pt-sm">
+<button class="bg-primary-container text-on-primary-container px-lg py-sm rounded-lg font-h3 text-body-md font-bold electric-glow hover:brightness-110 transition-all">Get Boost</button>
+<button class="border border-outline-variant bg-surface-container-high/50 backdrop-blur-md text-on-surface px-lg py-sm rounded-lg font-h3 text-body-md font-medium hover:bg-white/5 transition-all">Technical Documentation</button>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary-container/10 blur-2xl rounded-full group-hover:bg-primary-container/20 transition-all duration-500"></div>
+<img alt="EcoVolt T Boost Charger" class="relative w-full rounded-2xl glass-panel shadow-2xl border-white/5 transform group-hover:scale-[1.02] transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCehJ4qq6LB1Pm16py_5iAza2j9oPjc6GLsFwWwUeAeq3xFMOlxuZ5SfMkfZdHB3cTkhLobstQ0M-1YX164aLNlK3gGQu4Ntm8oecPGIJ_WhHrpP4kikQ_06YHWphJUOFTvqN-PpGjKRRp2bBzvMMaEI7wxLAKGd1BrqYCICKnYovSCtCAmPHtAIPmeLmnct3Jar6BeF87fyn29ywoDrqLx4q-hOEm0hi4H1uQXk8-Uqz0922cFApnYmdU8-V2EYr48CFDILkng9IM"/>
+</div>
+</div>
+</section>
+<!-- How it Works -->
+<section class="bg-surface-container-lowest py-xl px-margin border-y border-white/5">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-xl space-y-base">
+<h2 class="font-h2 text-h2 text-on-surface">Active Capacity Recovery</h2>
+<p class="text-on-surface-variant font-body-md max-w-2xl mx-auto">Our proprietary restoration cycle operates across three critical phases of the energy transfer process.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Step 1 -->
+<div class="glass-panel p-md rounded-xl space-y-md border-t-2 border-t-primary-container/40">
+<div class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-container">vibration</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface">01. Pulse Charging</h3>
+<p class="text-on-surface-variant font-body-md">High-frequency electrical micro-pulses break down sulfate crystallization on cell plates before the main charging phase begins.</p>
+</div>
+<!-- Step 2 -->
+<div class="glass-panel p-md rounded-xl space-y-md border-t-2 border-t-primary-container/40">
+<div class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-container">psychology</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface">02. AI Analysis</h3>
+<p class="text-on-surface-variant font-body-md">EcoVolt's Neural Core scans internal resistance and thermal profiles every 50ms to calculate the optimal charging curve for your battery's unique health profile.</p>
+</div>
+<!-- Step 3 -->
+<div class="glass-panel p-md rounded-xl space-y-md border-t-2 border-t-primary-container/40">
+<div class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-container">auto_fix_high</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface">03. Health Restoration</h3>
+<p class="text-on-surface-variant font-body-md">Dynamic ion-flow stabilization recovers up to 20% of lost capacity, re-activating dormant cell clusters and cooling hot spots instantly.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Specs Bento -->
+<section class="py-xl px-margin">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-gutter">
+<div class="md:col-span-2 glass-panel p-md rounded-xl flex flex-col justify-between overflow-hidden relative">
+<div class="relative z-10">
+<h3 class="font-h3 text-h3 text-on-surface mb-base">Performance Metrics</h3>
+<div class="space-y-sm">
+<div class="flex justify-between items-end border-b border-white/10 pb-xs">
+<span class="text-on-surface-variant font-body-md">Charging Speed</span>
+<span class="text-primary-container font-h3 text-body-lg">240kW Ultra-Fast</span>
+</div>
+<div class="flex justify-between items-end border-b border-white/10 pb-xs">
+<span class="text-on-surface-variant font-body-md">Energy Efficiency</span>
+<span class="text-primary-container font-h3 text-body-lg">99.2% Rating</span>
+</div>
+<div class="flex justify-between items-end border-b border-white/10 pb-xs">
+<span class="text-on-surface-variant font-body-md">Recovery Window</span>
+<span class="text-primary-container font-h3 text-body-lg">15-80% SoC</span>
+</div>
+</div>
+</div>
+<div class="mt-lg relative h-32 opacity-30">
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container/40 to-transparent"></div>
+<!-- Abstract SVG Wave for Data Viz -->
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 400 100">
+<path d="M0 80 Q 50 20, 100 80 T 200 80 T 300 80 T 400 80" fill="none" stroke="#8aceff" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<div class="md:col-span-1 glass-panel p-md rounded-xl flex flex-col items-center text-center justify-center space-y-sm">
+<div class="text-primary-container font-h1 text-h1">V4</div>
+<h4 class="font-h3 text-body-lg text-on-surface">Neural AI Core</h4>
+<p class="text-on-surface-variant font-label-caps text-[10px]">REAL-TIME NEURAL PROCESSING</p>
+</div>
+<div class="md:col-span-1 glass-panel p-md rounded-xl flex flex-col items-center text-center justify-center space-y-sm">
+<div class="text-primary-container font-h1 text-h1">IP68</div>
+<h4 class="font-h3 text-body-lg text-on-surface">Weather Guard</h4>
+<p class="text-on-surface-variant font-label-caps text-[10px]">ALL-CLIMATE RESILIENCE</p>
+</div>
+<div class="md:col-span-2 glass-panel p-md rounded-xl flex flex-col justify-center gap-md">
+<h3 class="font-h3 text-h3 text-on-surface">Universal Compatibility</h3>
+<div class="flex flex-wrap gap-sm">
+<span class="px-3 py-1 rounded bg-white/5 border border-white/10 text-on-surface-variant text-body-md">CCS Combo 1 &amp; 2</span>
+<span class="px-3 py-1 rounded bg-white/5 border border-white/10 text-on-surface-variant text-body-md">NACS (Tesla)</span>
+<span class="px-3 py-1 rounded bg-white/5 border border-white/10 text-on-surface-variant text-body-md">CHAdeMO</span>
+<span class="px-3 py-1 rounded bg-white/5 border border-white/10 text-on-surface-variant text-body-md">Type 2 AC</span>
+</div>
+</div>
+<div class="md:col-span-2 bg-primary-container p-md rounded-xl flex items-center justify-between group overflow-hidden">
+<div class="space-y-xs relative z-10">
+<h3 class="font-h3 text-h3 text-on-primary">Smart Installation</h3>
+<p class="text-on-primary/80 font-body-md max-w-xs">Professional setup within 48 hours via our certified technician network.</p>
+</div>
+<span class="material-symbols-outlined text-on-primary text-6xl opacity-20 group-hover:scale-110 transition-transform">construction</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Comparison Table -->
+<section class="bg-surface-container py-xl px-margin">
+<div class="max-w-5xl mx-auto">
+<h2 class="font-h2 text-h2 text-center mb-xl">Standard vs <span class="text-primary-container">EcoVolt T Boost</span></h2>
+<div class="glass-panel overflow-hidden rounded-xl border border-white/10">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-white/5">
+<th class="p-md text-on-surface font-h3 text-body-lg">Feature</th>
+<th class="p-md text-on-surface-variant font-body-md">Standard Charger</th>
+<th class="p-md text-primary-container font-h3 text-body-lg bg-primary-container/5">EcoVolt T Boost</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<tr>
+<td class="p-md text-on-surface font-medium">Life Extension</td>
+<td class="p-md text-on-surface-variant">None (Linear Decay)</td>
+<td class="p-md text-primary-container bg-primary-container/5 font-bold">+35% Lifecycle Growth</td>
+</tr>
+<tr>
+<td class="p-md text-on-surface font-medium">Heat Management</td>
+<td class="p-md text-on-surface-variant">Passive Throttling</td>
+<td class="p-md text-primary-container bg-primary-container/5 font-bold">Active AI Thermal Logic</td>
+</tr>
+<tr>
+<td class="p-md text-on-surface font-medium">SoH Accuracy</td>
+<td class="p-md text-on-surface-variant">± 8.0% Estimate</td>
+<td class="p-md text-primary-container bg-primary-container/5 font-bold">± 0.2% Neural Scan</td>
+</tr>
+<tr>
+<td class="p-md text-on-surface font-medium">Sulfation Removal</td>
+<td class="p-md text-on-surface-variant">Not Available</td>
+<td class="p-md text-primary-container bg-primary-container/5 font-bold">Continuous Pulse Tech</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Integration: Digital Twin -->
+<section class="py-xl px-margin">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-xl items-center">
+<div class="order-2 md:order-1">
+<img alt="Digital Twin Integration" class="rounded-xl glass-panel shadow-2xl border-white/5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARc95yg_yYO_e-ggfxbr8Iq2TSufjxnQDqxndvP3UbAaia2-h6nNJEwUL6rlR09eHXAw-m4ra-7whchJ8qRosMHzyRqUXmtTFUGIvYI9q-rooGb5Vd03XrZwcHAB7kDBxLLHUXQdGe9bMf8WjBN4toq_grP9VJLst0zpAydK84YeRIWGXiRFquFE1lJZXk_EKU5tS8vMdyYMRDkx1t6PZwRJH7CskddZ3U3vOqRdZjRVMnS4xRZpjtSNPemhWLDPiJ6MWVRCwbyzw"/>
+</div>
+<div class="order-1 md:order-2 space-y-md">
+<h2 class="font-h2 text-h2 text-on-surface">Powered by EcoVolt T Core</h2>
+<p class="text-on-surface-variant font-body-lg">Boost seamlessly integrates with EcoVolt T Core to create a 'Digital Twin' of your energy assets. Track every pulse, every recovered watt, and every heat cycle through a high-fidelity real-time simulation.</p>
+<ul class="space-y-sm">
+<li class="flex items-center gap-base text-on-surface">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Predictive Maintenance Alerts
+                        </li>
+<li class="flex items-center gap-base text-on-surface">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Blockchain-Verified Health Certificates
+                        </li>
+<li class="flex items-center gap-base text-on-surface">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Fleet-Wide Optimization
+                        </li>
+</ul>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-xl px-margin">
+<div class="max-w-5xl mx-auto text-center glass-panel p-xl rounded-2xl relative overflow-hidden">
+<div class="absolute inset-0 bg-primary-container/5 pointer-events-none"></div>
+<div class="relative z-10 space-y-md">
+<h2 class="font-h1 text-h1 text-on-surface">Maximize Your Potential.</h2>
+<p class="text-on-surface-variant font-body-lg max-w-2xl mx-auto">Join the ecosystem. EcoVolt T Boost comes with a 12-month complimentary 'Care' subscription for advanced digital twin tracking.</p>
+<div class="flex flex-col md:flex-row justify-center gap-md pt-md">
+<button class="bg-primary-container text-on-primary-container px-xl py-sm rounded-lg font-h3 text-body-md font-bold electric-glow hover:brightness-110 transition-all">Get Boost Now</button>
+<button class="border border-outline text-on-surface px-xl py-sm rounded-lg font-h3 text-body-md font-medium hover:bg-white/5 transition-all">Explore Care Plans</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#05140D] w-full py-12 border-t border-white/5 font-['Space_Grotesk'] text-sm">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-10 max-w-7xl mx-auto">
+<div class="space-y-md">
+<div class="text-lg font-bold text-sky-400">EcoVolt T</div>
+<p class="text-white/40">Intelligent Energy Ecosystems for a sustainable future.</p>
+</div>
+<div class="space-y-sm">
+<div class="text-white/70 font-bold mb-xs">Product</div>
+<a class="block text-white/40 hover:text-sky-400 transition-colors" href="/boost">Boost</a>
+<a class="block text-white/40 hover:text-sky-400 transition-colors" href="/shield">Shield</a>
+<a class="block text-white/40 hover:text-sky-400 transition-colors" href="/core">Core</a>
+</div>
+<div class="space-y-sm">
+<div class="text-white/70 font-bold mb-xs">Company</div>
+<a class="block text-white/40 hover:text-sky-400 transition-colors" href="/">Home</a>
+<a class="block text-white/40 hover:text-sky-400 transition-colors" href="#">Sustainability</a>
+<a class="block text-white/40 hover:text-sky-400 transition-colors" href="#">Legal</a>
+</div>
+<div class="space-y-sm">
+<div class="text-white/70 font-bold mb-xs">Follow</div>
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-white/40 hover:text-sky-400 cursor-pointer">public</span>
+<span class="material-symbols-outlined text-white/40 hover:text-sky-400 cursor-pointer">share</span>
+<span class="material-symbols-outlined text-white/40 hover:text-sky-400 cursor-pointer">monitoring</span>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-10 pt-12 text-center text-white/20">
+            © 2024 EcoVolt T. Intelligent Energy Ecosystems.
+        </div>
+</footer>
+</body></html>
