@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoVolt T - Intelligent Energy Ecosystems</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(13, 42, 28, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-blue {
+            box-shadow: 0 0 20px rgba(0, 166, 237, 0.15);
+        }
+        .electric-gradient {
+            background: linear-gradient(90deg, #0D2A1C 0%, #00a6ed 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 166, 237, 0.2);
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary": "#24342b",
+                      "primary-fixed": "#c9e6ff",
+                      "on-secondary-fixed-variant": "#3a4a41",
+                      "on-tertiary-container": "#1d3a2b",
+                      "secondary-fixed-dim": "#b8cbbf",
+                      "surface-container-lowest": "#0b0f0e",
+                      "secondary-fixed": "#d4e7db",
+                      "error": "#ffb4ab",
+                      "on-surface": "#e0e3e1",
+                      "primary": "#8aceff",
+                      "on-primary-container": "#003853",
+                      "on-error-container": "#ffdad6",
+                      "on-tertiary-fixed": "#032013",
+                      "tertiary": "#aeceb9",
+                      "surface-tint": "#8aceff",
+                      "primary-fixed-dim": "#8aceff",
+                      "on-error": "#690005",
+                      "surface-variant": "#313635",
+                      "on-tertiary-fixed-variant": "#304d3d",
+                      "surface-container": "#1c201f",
+                      "error-container": "#93000a",
+                      "on-secondary-container": "#aabdb1",
+                      "surface-bright": "#363a39",
+                      "outline-variant": "#3e4850",
+                      "secondary-container": "#3c4d44",
+                      "tertiary-fixed-dim": "#aeceb9",
+                      "surface-container-low": "#181c1b",
+                      "on-tertiary": "#1a3627",
+                      "on-surface-variant": "#bec8d2",
+                      "inverse-primary": "#006491",
+                      "tertiary-fixed": "#c9ead4",
+                      "tertiary-container": "#85a490",
+                      "background": "#101413",
+                      "surface-container-high": "#272b2a",
+                      "on-secondary-fixed": "#0f1f17",
+                      "inverse-surface": "#e0e3e1",
+                      "on-background": "#e0e3e1",
+                      "inverse-on-surface": "#2d3130",
+                      "on-primary": "#00344e",
+                      "secondary": "#b8cbbf",
+                      "on-primary-fixed": "#001e2f",
+                      "surface-dim": "#101413",
+                      "outline": "#88932c",
+                      "surface": "#101413",
+                      "primary-container": "#00a6ed",
+                      "surface-container-highest": "#313635",
+                      "on-primary-fixed-variant": "#004b6f"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "md": "24px",
+                      "xl": "80px",
+                      "base": "8px",
+                      "lg": "48px",
+                      "margin": "40px",
+                      "xs": "4px",
+                      "gutter": "24px",
+                      "sm": "12px"
+              },
+              "fontFamily": {
+                      "h1": ["Space Grotesk"],
+                      "code": ["Space Grotesk"],
+                      "label-caps": ["Inter"],
+                      "h3": ["Space Grotesk"],
+                      "body-lg": ["Inter"],
+                      "h2": ["Space Grotesk"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "h1": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "code": ["14px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                      "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "600"}],
+                      "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "h2": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 border-b border-white/10 bg-[#0D2A1C]/80 backdrop-blur-xl shadow-[0_0_20px_rgba(0,166,237,0.15)] h-20">
+    <nav class="flex justify-between items-center h-full px-10 max-w-7xl mx-auto font-['Space_Grotesk'] tracking-tight">
+        <div class="text-2xl font-bold text-sky-400 tracking-tighter">
+            <a href="/">EcoVolt T</a>
+        </div>
+        <div class="hidden md:flex gap-8 items-center">
+            <a href="/boost" class="text-white/70 font-medium hover:text-white hover:bg-sky-400/10 hover:text-sky-300 transition-all duration-300 px-3 py-1 rounded">Boost</a>
+            <a href="/shield" class="text-white/70 font-medium hover:text-white hover:bg-sky-400/10 hover:text-sky-300 transition-all duration-300 px-3 py-1 rounded">Shield</a>
+            <a href="/core" class="text-white/70 font-medium hover:text-white hover:bg-sky-400/10 hover:text-sky-300 transition-all duration-300 px-3 py-1 rounded">Core</a>
+            <a href="#care" class="text-white/70 font-medium hover:text-white hover:bg-sky-400/10 hover:text-sky-300 transition-all duration-300 px-3 py-1 rounded">Care</a>
+        </div>
+        <button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-bold active:scale-95 transition-transform hover:bg-sky-400/90 shadow-[0_0_15px_rgba(0,166,237,0.4)]">Get Started</button>
+    </nav>
+</header>
+
+<main class="pt-20">
+
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center px-10 max-w-7xl mx-auto overflow-hidden">
+    <div class="grid lg:grid-cols-2 gap-12 items-center z-10">
+        <div class="space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-sky-400/30 bg-sky-400/5 text-sky-400 font-label-caps text-label-caps">
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                THE FUTURE OF ENERGY INTELLIGENCE
+            </div>
+            <h1 class="font-h1 text-h1 text-white">EcoVolt T <span class="text-sky-400">Ecosystem</span></h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                The complete ecosystem for intelligent energy management. AI-powered digital twins, adaptive charging, and real-time monitoring for maximum efficiency.
+            </p>
+            <div class="flex gap-4">
+                <a href="/core" class="bg-primary text-on-primary px-8 py-3 rounded-lg font-bold hover:glow-blue transition-all inline-block">Explore Core</a>
+                <a href="#products" class="border border-white/20 bg-white/5 backdrop-blur-md px-8 py-3 rounded-lg font-bold hover:bg-white/10 transition-all inline-block">See All Products</a>
+            </div>
+        </div>
+        <div class="relative group">
+            <div class="absolute -inset-4 bg-sky-400/20 blur-3xl opacity-20 rounded-full group-hover:opacity-30 transition-opacity"></div>
+            <div class="glass-panel p-8 rounded-2xl relative overflow-hidden">
+                <img alt="EcoVolt Ecosystem" class="w-full h-auto rounded-lg opacity-90 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxLuTM69UP_RObsAlUYAL6iPhsGQQQ2ISHskknYSSkpdwdjSpD5bh9sW-fP37Gq6ZJ1FZkRvXlZQTrjj6Jpc0jJ_gViQmM3nA2Etcw-TdUlL5rjRvKWkSTQGkiv-_gEpIYIN7IvbESdJ4j_kk86GlHBpSRyD48ImMl28kbp6V_-LjjhVTNqSnIcQbAieFXratu66eh7QynGI9l0rPFxTD-dRHFd4ybPO_X3bEfhfoNy9xFDhUG_E7OPo7x9isUavJP5sGK8JJ1GBY">
+                <div class="absolute bottom-12 right-12 glass-panel p-4 rounded-xl border-sky-400/40">
+                    <div class="text-sky-400 font-h3 text-h3">3 Products</div>
+                    <div class="text-xs font-label-caps text-white/60">COMPLETE ECOSYSTEM</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="absolute top-1/2 -right-1/4 w-[600px] h-[600px] bg-sky-400/5 rounded-full blur-[120px] pointer-events-none"></div>
+</section>
+
+<!-- Products Grid Section -->
+<section id="products" class="py-xl px-10 max-w-7xl mx-auto">
+    <div class="mb-lg">
+        <h2 class="font-h2 text-h2 text-white">Our Products</h2>
+        <p class="text-on-surface-variant mt-2">Three integrated solutions for complete energy intelligence.</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+        
+        <!-- BOOST Card - Clickable -->
+        <a href="/boost" class="glass-panel p-md rounded-xl space-y-4 border border-white/5 card-hover group">
+            <span class="material-symbols-outlined text-sky-400 text-4xl">bolt</span>
+            <h3 class="font-h3 text-h3 text-white">Boost</h3>
+            <p class="text-on-surface-variant font-body-md">AI Smart Charger with Active Capacity Recovery. Restore up to 20% lost capacity and extend battery lifecycle.</p>
+            <div class="pt-md border-t border-white/5 group-hover:border-sky-400/50 transition-colors">
+                <span class="text-sky-400 font-bold text-sm flex items-center gap-2">
+                    Learn more <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </span>
+            </div>
+        </a>
+
+        <!-- SHIELD Card - Clickable -->
+        <a href="/shield" class="glass-panel p-md rounded-xl space-y-4 border border-white/5 card-hover group">
+            <span class="material-symbols-outlined text-sky-400 text-4xl">security</span>
+            <h3 class="font-h3 text-h3 text-white">Shield</h3>
+            <p class="text-on-surface-variant font-body-md">Universal adapter module for any battery. Real-time thermal protection and sub-millisecond diagnostics.</p>
+            <div class="pt-md border-t border-white/5 group-hover:border-sky-400/50 transition-colors">
+                <span class="text-sky-400 font-bold text-sm flex items-center gap-2">
+                    Learn more <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </span>
+            </div>
+        </a>
+
+        <!-- CORE Card - Clickable -->
+        <a href="/core" class="glass-panel p-md rounded-xl space-y-4 border border-white/5 card-hover group">
+            <span class="material-symbols-outlined text-sky-400 text-4xl">hub</span>
+            <h3 class="font-h3 text-h3 text-white">Core</h3>
+            <p class="text-on-surface-variant font-body-md">Cloud ecosystem for digital twins and fleet optimization. 98.4% SOH predictive accuracy with AI analytics.</p>
+            <div class="pt-md border-t border-white/5 group-hover:border-sky-400/50 transition-colors">
+                <span class="text-sky-400 font-bold text-sm flex items-center gap-2">
+                    Learn more <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </span>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+<!-- Integration Section -->
+<section class="py-xl px-10 max-w-7xl mx-auto">
+    <div class="glass-panel p-lg rounded-2xl text-center border border-white/10">
+        <h2 class="font-h2 text-h2 text-white mb-4">Integrated Ecosystem</h2>
+        <p class="text-on-surface-variant font-body-lg max-w-2xl mx-auto mb-8">
+            Boost, Shield, and Core work together seamlessly. Build your complete energy intelligence platform.
+        </p>
+        <div class="flex justify-center gap-4 mb-8">
+            <span class="px-4 py-2 bg-primary-container/20 border border-primary-container/40 rounded-full text-primary font-body-md">Boost → Core</span>
+            <span class="px-4 py-2 bg-primary-container/20 border border-primary-container/40 rounded-full text-primary font-body-md">Shield → Core</span>
+            <span class="px-4 py-2 bg-primary-container/20 border border-primary-container/40 rounded-full text-primary font-body-md">All Connected</span>
+        </div>
+        <button class="bg-primary-container text-on-primary-container px-8 py-3 rounded-lg font-bold hover:glow-blue transition-all">Build Your Stack</button>
+    </div>
+</section>
+
+<!-- Care Section -->
+<section id="care" class="py-xl px-10 max-w-7xl mx-auto">
+    <div class="text-center mb-lg">
+        <h2 class="font-h2 text-h2 text-white">Lifecycle Protection</h2>
+        <p class="text-on-surface-variant mt-2">EcoVolt T Care subscription tiers.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Standard -->
+        <div class="glass-panel p-lg rounded-2xl flex flex-col border border-white/5">
+            <div class="mb-8">
+                <div class="text-sky-400 font-label-caps text-label-caps mb-2">FOUNDATION</div>
+                <h3 class="font-h3 text-h3 text-white">Telemetry</h3>
+                <div class="mt-4 flex items-baseline gap-1">
+                    <span class="text-3xl font-bold text-white">$49</span>
+                    <span class="text-white/40">/unit/mo</span>
+                </div>
+            </div>
+            <ul class="space-y-4 mb-8 flex-1">
+                <li class="flex items-center gap-2 text-sm text-white/70"><span class="material-symbols-outlined text-sky-400 text-[18px]">check</span> Real-time Monitoring</li>
+                <li class="flex items-center gap-2 text-sm text-white/70"><span class="material-symbols-outlined text-sky-400 text-[18px]">check</span> API Access</li>
+                <li class="flex items-center gap-2 text-sm text-white/70"><span class="material-symbols-outlined text-sky-400 text-[18px]">check</span> Daily Health Reports</li>
+            </ul>
+            <button class="w-full py-3 border border-white/10 rounded-lg font-bold hover:bg-white/5 transition-all">Get Started</button>
+        </div>
+
+        <!-- Featured: Care Plus -->
+        <div class="glass-panel p-lg rounded-2xl flex flex-col border-2 border-sky-400 glow-blue relative scale-105 z-10 bg-sky-400/5">
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-sky-400 text-on-primary px-4 py-1 rounded-full font-label-caps text-[10px] tracking-widest font-bold">MOST POPULAR</div>
+            <div class="mb-8">
+                <div class="text-sky-400 font-label-caps text-label-caps mb-2">ADVANCED</div>
+                <h3 class="font-h3 text-h3 text-white">EcoVolt T Care</h3>
+                <div class="mt-4 flex items-baseline gap-1">
+                    <span class="text-3xl font-bold text-white">$129</span>
+                    <span class="text-white/40">/unit/mo</span>
+                </div>
+            </div>
+            <ul class="space-y-4 mb-8 flex-1">
+                <li class="flex items-center gap-2 text-sm text-white"><span class="material-symbols-outlined text-sky-400 text-[18px]">check</span> Everything in Telemetry</li>
+                <li class="flex items-center gap-2 text-sm text-white"><span class="material-symbols-outlined text-sky-400 text-[18px]">check</span> Predictive AI SOH</li>
+                <li class="flex items-center gap-2 text-sm text-white"><span class="material-symbols-outlined text-sky-400 text-[18px]">check</span> Fleet Optimization</li>
+                <li class="flex items-center gap-2 text-sm text-white"><span class="material-symbols-outlined text-sky-400 text-[18px]">check</span> Blockchain Certificates</li>
+            </ul>
+            <button class="w-full py-3 bg-sky-400 text-on-primary rounded-lg font-bold hover:shadow-lg transition-all">Deploy Now</button>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="glass-panel p-lg rounded-2xl flex flex-col border border-white/5">
+            <div class="mb-8">
+                <div class="text-sky-400 font-label-caps text-label-caps mb-2">CUSTOM</div>
+                <h3 class="font-h3 text-h3 text-white">Strategic</h3>
+                <div class="mt-4 flex items-baseline gap-1">
+                    <span class="text-3xl font-bold text-white">Custom</span>
+                </div>
+            </div>
+            <ul class="space-y-4 mb-8 flex-1">
+                <li class="flex items-center gap-2 text-sm text-white/70"><span class="material-symbols-outlined text-sky-400 text-[18px]">check</span> White-label Dashboard</li>
+                <li class="flex items-center gap-2 text-sm text-white/70"><span class="material-symbols-outlined text-sky-400 text-[18px]">check</span> Dedicated Data Science</li>
+                <li class="flex items-center gap-2 text-sm text-white/70"><span class="material-symbols-outlined text-sky-400 text-[18px]">check</span> Hardware Integration</li>
+            </ul>
+            <button class="w-full py-3 border border-white/10 rounded-lg font-bold hover:bg-white/5 transition-all">Contact Sales</button>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#05140D] border-t border-white/5 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-10 max-w-7xl mx-auto font-['Space_Grotesk'] text-sm">
+        <div class="space-y-4">
+            <div class="text-lg font-bold text-sky-400">EcoVolt T</div>
+            <p class="text-white/40 leading-relaxed">Intelligence for the high-energy era.</p>
+        </div>
+        <div class="space-y-4">
+            <div class="text-white font-bold">Products</div>
+            <ul class="space-y-2">
+                <li><a href="/boost" class="text-white/40 hover:text-sky-400 transition-colors">Boost</a></li>
+                <li><a href="/shield" class="text-white/40 hover:text-sky-400 transition-colors">Shield</a></li>
+                <li><a href="/core" class="text-white/40 hover:text-sky-400 transition-colors">Core</a></li>
+            </ul>
+        </div>
+        <div class="space-y-4">
+            <div class="text-white font-bold">Resources</div>
+            <ul class="space-y-2">
+                <li><a href="#" class="text-white/40 hover:text-sky-400 transition-colors">Legal</a></li>
+                <li><a href="#" class="text-white/40 hover:text-sky-400 transition-colors">Privacy</a></li>
+            </ul>
+        </div>
+        <div class="space-y-4">
+            <div class="text-white font-bold">Connect</div>
+            <div class="flex gap-4">
+                <span class="material-symbols-outlined text-white/40 hover:text-sky-400 cursor-pointer">share</span>
+                <span class="material-symbols-outlined text-white/40 hover:text-sky-400 cursor-pointer">mail</span>
+            </div>
+        </div>
+    </div>
+    <div class="mt-12 text-center text-white/20 text-xs border-t border-white/5 pt-8">
+        © 2024 EcoVolt T. Intelligent Energy Ecosystems.
+    </div>
+</footer>
+
+<!-- FAB -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center shadow-2xl active:scale-95 transition-transform z-50 hover:scale-110">
+    <span class="material-symbols-outlined">bolt</span>
+</button>
+
+</body>
+</html>
