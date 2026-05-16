@@ -409,12 +409,16 @@
     <h1>Intelligence au Cœur de <span class="accent">Chaque Batterie.</span></h1>
     <p class="hero-sub">EcoVolt prolonge la durée de vie de vos batteries de 2 à 3 fois grâce à notre IA auto-apprenante. Arrêtez de remplacer — commencez à optimiser.</p>
 
-    <div class="email-wrap">
+   <div class="email-wrap">
       <p class="email-label">📬 Rejoignez la liste d'attente — soyez le premier informé du lancement :</p>
-      <form class="email-form" id="emailForm" onsubmit="handleEmail(event)">
-        <input type="email" id="emailInput" placeholder="votre@email.com" required/>
+      
+      <form class="email-form" id="emailForm" action="https://d59ce063.sibforms.com/serve/MUIFALLClLUbiA45Z1FJ-6qFmRBKSbwx9okNOhvwE1MMzFVlGIoS-K2OXzOncpJ74jh8jK42ju0juJuLJBmsbhoMMcT0ReRWRNhgqnp7nrG9tuVa2lnzg4vaBqBDolA_ceXkUuhD6O0G7EUz4ymzGMZ7zDAiDSmTLQW7Vko3t-7M_OPbsnEuHC1Tr0K3Ey8BA6sjZC_ef4z65AzrXQ==" method="POST" target="hidden_iframe" onsubmit="handleEmail(event)">
+        <input type="email" id="emailInput" name="EMAIL" placeholder="votre@email.com" required/>
         <button type="submit">Rejoindre →</button>
       </form>
+
+      <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
       <p class="email-note">Déjà <strong id="waitCount">247</strong> personnes inscrites. Sans spam.</p>
       <p class="email-success" id="emailSuccess">✓ Vous êtes sur la liste ! On vous contacte bientôt.</p>
       <div class="counter-badge"><span></span>Liste active — Ukraine & Roumanie & France</div>
@@ -722,19 +726,25 @@
 <script>
 function scrollTo(id) {
   document.getElementById(id).scrollIntoView({behavior:'smooth'});
-}
 function handleEmail(e) {
-  e.preventDefault();
-  document.getElementById('emailForm').style.display = 'none';
-  document.getElementById('emailSuccess').style.display = 'block';
-  document.getElementById('waitCount').textContent = parseInt(document.getElementById('waitCount').textContent) + 1;
-  // TODO: connecter à Mailchimp / ConvertKit API
+  // Даем браузеру полсекунды, чтобы гарантированно отправить email в Brevo,
+  // после чего плавно переключаем интерфейс на сайте
+  setTimeout(function() {
+    document.getElementById('emailForm').style.display = 'none';
+    document.getElementById('emailSuccess').style.display = 'block';
+    
+    // Анимация счетчика (+1 на экране)
+    const waitCountEl = document.getElementById('waitCount');
+    if (waitCountEl) {
+      waitCountEl.textContent = parseInt(waitCountEl.textContent || 0) + 1;
+    }
+  }, 500);
 }
+
 function handleContact(e) {
-  e.preventDefault();
+  // Форма инвесторов отправляет данные, а мы мгновенно скрываем её для пользователя
   e.target.style.display = 'none';
   document.getElementById('contactOk').style.display = 'block';
-  // TODO: connecter à Formspree ou votre CRM
 }
 const donateLinks = {
   '10': 'https://buy.stripe.com/7sY14mfne5Se2uwd3U8Vi02',
