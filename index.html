@@ -295,36 +295,292 @@
   .impact-title { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
   .impact-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
 
-  /* INVESTORS */
-  .investors-section { background: rgba(3,13,7,0.8); }
-  .investors-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 48px; }
-  .kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
-  .kpi-card {
-    background: rgba(13,42,28,0.6); border: 1px solid var(--border);
-    border-radius: 16px; padding: 20px;
+  /* INVESTORS - ПРОВЕРКА И ИСПРАВЛЕНИЯ */
+
+/* ✅ ХОРОШО - Эти стили работают правильно: */
+.investors-section { background: rgba(3,13,7,0.8); }
+.kpi-num { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: var(--blue-bright); }
+.kpi-label { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+.contact-form { display: flex; flex-direction: column; gap: 12px; }
+.contact-form input:focus, .contact-form textarea:focus { border-color: rgba(0,166,237,0.5); }
+.contact-form button:hover { opacity: .88; }
+
+/* ❌ ПРОБЛЕМЫ И ИСПРАВЛЕНИЯ: */
+
+/* ПРОБЛЕМА 1: CSS Grid в email может не работать */
+/* ❌ БЫЛО: */
+.investors-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 48px; }
+
+/* ✅ ИСПРАВЛЕНИЕ - для мобильной адаптивности: */
+.investors-grid { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 80px; 
+  align-items: start; 
+  margin-top: 48px;
+}
+@media (max-width: 900px) {
+  .investors-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* ПРОБЛЕМА 2: Gap 16px может быть маловат для видимости */
+/* ❌ БЫЛО: */
+.kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
+
+/* ✅ ИСПРАВЛЕНИЕ - увеличен gap для лучшей читаемости: */
+.kpi-grid { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 20px;  /* было 16px */
+  margin-top: 28px; 
+}
+
+/* ПРОБЛЕМА 3: Padding в .investor-contact может быть мал на мобильных */
+/* ❌ БЫЛО: */
+.investor-contact {
+  background: rgba(13,42,28,0.7); 
+  border: 1px solid var(--border);
+  border-radius: 24px; 
+  padding: 36px;
+}
+
+/* ✅ ИСПРАВЛЕНИЕ - адаптивный padding: */
+.investor-contact {
+  background: rgba(13,42,28,0.7); 
+  border: 1px solid var(--border);
+  border-radius: 24px; 
+  padding: 36px;
+  box-shadow: 0 0 40px rgba(0,166,237,0.08);
+}
+@media (max-width: 600px) {
+  .investor-contact { padding: 24px; }
+}
+
+/* ПРОБЛЕМА 4: Input/Textarea могут быть лучше стилизованы */
+/* ❌ БЫЛО: */
+.contact-form input, .contact-form textarea {
+  background: rgba(255,255,255,0.05); 
+  border: 1px solid var(--border);
+  border-radius: 12px; 
+  padding: 14px 18px;
+  color: var(--text); 
+  font-family: 'Inter', sans-serif; 
+  font-size: 15px;
+  outline: none; 
+  transition: border-color .2s; 
+  resize: none;
+}
+
+/* ✅ ИСПРАВЛЕНИЕ - лучший стиль и состояния: */
+.contact-form input, 
+.contact-form textarea {
+  background: rgba(255,255,255,0.05); 
+  border: 1px solid var(--border);
+  border-radius: 12px; 
+  padding: 14px 18px;
+  color: var(--text); 
+  font-family: 'Inter', sans-serif; 
+  font-size: 15px;
+  outline: none; 
+  transition: all .2s; /* было только border-color */
+  resize: none;
+  width: 100%; /* добавлено */
+  box-sizing: border-box; /* добавлено */
+}
+
+/* ПРОБЛЕМА 5: Кнопка может быть лучше выглядеть */
+/* ❌ БЫЛО: */
+.contact-form button {
+  background: var(--blue); 
+  color: #001a2e;
+  border: none; 
+  border-radius: 12px; 
+  padding: 15px;
+  font-family: 'Space Grotesk', sans-serif; 
+  font-weight: 700; 
+  font-size: 15px;
+  cursor: pointer; 
+  transition: opacity .2s;
+}
+
+/* ✅ ИСПРАВЛЕНИЕ - с более красивым эффектом: */
+.contact-form button {
+  background: var(--blue); 
+  color: #001a2e;
+  border: none; 
+  border-radius: 12px; 
+  padding: 15px;
+  font-family: 'Space Grotesk', sans-serif; 
+  font-weight: 700; 
+  font-size: 15px;
+  cursor: pointer; 
+  transition: all .2s;
+  width: 100%; /* добавлено */
+  box-shadow: 0 0 16px rgba(0,166,237,0.3); /* добавлено */
+}
+
+.contact-form button:hover { 
+  opacity: .88;
+  box-shadow: 0 0 28px rgba(0,166,237,0.5); /* добавлено */
+  transform: translateY(-1px); /* добавлено */
+}
+
+.contact-form button:active {
+  transform: translateY(0); /* добавлено */
+}
+
+/* ИТОГОВЫЙ ИСПРАВЛЕННЫЙ КОД: */
+
+/* INVESTORS */
+.investors-section { background: rgba(3,13,7,0.8); }
+
+.investors-grid { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 80px; 
+  align-items: start; 
+  margin-top: 48px; 
+}
+
+.kpi-grid { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 20px; /* увеличен с 16px */
+  margin-top: 28px; 
+}
+
+.kpi-card {
+  background: rgba(13,42,28,0.6); 
+  border: 1px solid var(--border);
+  border-radius: 16px; 
+  padding: 20px;
+}
+
+.kpi-num { 
+  font-family: 'Space Grotesk', sans-serif; 
+  font-size: 28px; 
+  font-weight: 700; 
+  color: var(--blue-bright); 
+}
+
+.kpi-label { 
+  font-size: 12px; 
+  color: var(--text-muted); 
+  margin-top: 4px; 
+}
+
+.investor-contact {
+  background: rgba(13,42,28,0.7); 
+  border: 1px solid var(--border);
+  border-radius: 24px; 
+  padding: 36px;
+  box-shadow: 0 0 40px rgba(0,166,237,0.08);
+}
+
+.contact-form { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 12px; 
+}
+
+.contact-form input, 
+.contact-form textarea {
+  background: rgba(255,255,255,0.05); 
+  border: 1px solid var(--border);
+  border-radius: 12px; 
+  padding: 14px 18px;
+  color: var(--text); 
+  font-family: 'Inter', sans-serif; 
+  font-size: 15px;
+  outline: none; 
+  transition: all .2s; 
+  resize: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact-form input::placeholder, 
+.contact-form textarea::placeholder { 
+  color: var(--text-muted); 
+}
+
+.contact-form input:focus, 
+.contact-form textarea:focus { 
+  border-color: rgba(0,166,237,0.5);
+  background: rgba(255,255,255,0.08); /* добавлено */
+}
+
+.contact-form button {
+  background: var(--blue); 
+  color: #001a2e;
+  border: none; 
+  border-radius: 12px; 
+  padding: 15px;
+  font-family: 'Space Grotesk', sans-serif; 
+  font-weight: 700; 
+  font-size: 15px;
+  cursor: pointer; 
+  transition: all .2s;
+  width: 100%;
+  box-shadow: 0 0 16px rgba(0,166,237,0.3);
+}
+
+.contact-form button:hover { 
+  opacity: .88;
+  box-shadow: 0 0 28px rgba(0,166,237,0.5);
+  transform: translateY(-1px);
+}
+
+.contact-form button:active {
+  transform: translateY(0);
+}
+
+/* МОБИЛЬНАЯ АДАПТИВНОСТЬ */
+@media (max-width: 900px) {
+  .investors-grid { 
+    grid-template-columns: 1fr; 
+    gap: 40px; 
   }
-  .kpi-num { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: var(--blue-bright); }
-  .kpi-label { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
-  .investor-contact {
-    background: rgba(13,42,28,0.7); border: 1px solid var(--border);
-    border-radius: 24px; padding: 36px;
+  
+  .investor-contact { 
+    padding: 24px; 
   }
-  .contact-form { display: flex; flex-direction: column; gap: 12px; }
-  .contact-form input, .contact-form textarea {
-    background: rgba(255,255,255,0.05); border: 1px solid var(--border);
-    border-radius: 12px; padding: 14px 18px;
-    color: var(--text); font-family: 'Inter', sans-serif; font-size: 15px;
-    outline: none; transition: border-color .2s; resize: none;
+}
+
+@media (max-width: 600px) {
+  .investors-grid { 
+    margin-top: 32px; 
   }
-  .contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--text-muted); }
-  .contact-form input:focus, .contact-form textarea:focus { border-color: rgba(0,166,237,0.5); }
+  
+  .kpi-grid { 
+    gap: 12px; 
+  }
+  
+  .kpi-card { 
+    padding: 16px; 
+  }
+  
+  .kpi-num { 
+    font-size: 24px; 
+  }
+  
+  .investor-contact { 
+    padding: 20px; 
+    border-radius: 16px;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+  
   .contact-form button {
-    background: var(--blue); color: #001a2e;
-    border: none; border-radius: 12px; padding: 15px;
-    font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 15px;
-    cursor: pointer; transition: opacity .2s;
+    padding: 12px;
+    font-size: 14px;
   }
-  .contact-form button:hover { opacity: .88; }
+}
+
 
   /* CARE */
   .care-section { background: rgba(5,20,13,0.6); }
