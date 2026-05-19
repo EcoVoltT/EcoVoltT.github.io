@@ -958,6 +958,122 @@ function handleContact(e) {
   document.getElementById('contactForm').style.display = 'none';
   document.getElementById('contactOk').style.display = 'block';
 }
+<script>
+// Безопасный и плавный скролл к разделам
+function scrollToSection(id) {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+// Отправка первой формы в Brevo (с задержкой для надежности передачи данных)
+function handleEmail(e) {
+  setTimeout(function() {
+    document.getElementById('emailForm').style.display = 'none';
+    document.getElementById('emailSuccess').style.display = 'block';
+    
+    const waitCountEl = document.getElementById('waitCount');
+    if (waitCountEl) {
+      waitCountEl.textContent = parseInt(waitCountEl.textContent || 0) + 1;
+    }
+  }, 500);
+}
+
+// ========================================
+// ФОРМА ИНВЕСТОРОВ + BREVO ИНТЕГРАЦИЯ
+// ========================================
+async function handleContact(event) {
+  event.preventDefault();
+  
+  const form = document.getElementById('contactForm');
+  const inputs = form.querySelectorAll('input, textarea');
+  const data = {
+    name: inputs[0].value,
+    email: inputs[1].value,
+    organization: inputs[2].value,
+    message: inputs[3].value
+  };
+  
+  try {
+    // Добавляем контакт в Brevo
+    const brevoResponse = await fetch('https://api.brevo.com/v3/contacts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'api-key': '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'
+      },
+      body: JSON.stringify({
+        email: data.email,
+        attributes: {
+          FIRSTNAME: data.name,
+          ORGANIZATION: data.organization || 'Non spécifié',
+          MESSAGE: data.message
+        },
+        listIds: [7],
+        updateEnabled: true
+      })
+    });
+
+    // Отправляем письмо вам
+    const emailResponse = await fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'api-key': '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'
+      },
+      body: JSON.stringify({
+        sender: { name: 'EcoVolt', email: 'contact@ecovolpt.fr' },
+        to: [{ email: 'contact@ecovolpt.fr' }],
+        subject: `📧 Nouveau contact investisseur: ${data.name}`,
+        htmlContent: `
+          <h2 style="color: #00a6ed;">Nouveau message d'investisseur</h2>
+          <table style="width: 100%; border-collapse: collapse;">
+            <tr style="border-bottom: 1px solid #e0e0e0;">
+              <td style="padding: 10px; font-weight: bold; width: 30%;">Nom:</td>
+              <td style="padding: 10px;">${data.name}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e0e0e0;">
+              <td style="padding: 10px; font-weight: bold;">Email:</td>
+              <td style="padding: 10px;"><a href="mailto:${data.email}">${data.email}</a></td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e0e0e0;">
+              <td style="padding: 10px; font-weight: bold;">Organisation:</td>
+              <td style="padding: 10px;">${data.organization || 'Non spécifié'}</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px; font-weight: bold; vertical-align: top;">Message:</td>
+              <td style="padding: 10px; background: #f8fafb; border-radius: 5px;">
+                ${data.message.replace(/\n/g, '<br>')}
+              </td>
+            </tr>
+          </table>
+          <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 20px 0;">
+          <p style="color: #777; font-size: 12px;">
+            ✓ Контакт автоматически добавлен в список "Investors" в Brevo
+          </p>
+        `
+      })
+    });
+
+    if (brevoResponse.ok || brevoResponse.status === 400) {
+      console.log('✅ Контакт добавлен в Brevo');
+    }
+    
+    if (emailResponse.ok) {
+      console.log('✅ Письмо отправлено');
+      form.style.display = 'none';
+      document.getElementById('contactOk').style.display = 'block';
+      form.reset();
+    } else {
+      alert('Ошибка при отправке. Попробуйте ещё раз.');
+    }
+
+  } catch (error) {
+    console.error('Ошибка:', error);
+    alert('Ошибка подключения. Проверьте интернет и попробуйте ещё раз.');
+  }
+}
 </script>
 
 </body>
