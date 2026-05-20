@@ -983,25 +983,7 @@ function handleEmail(e) {
 // ========================================
 // ФОРМА ИНВЕСТОРОВ + BREVO ИНТЕГРАЦИЯ
 // ========================================
-async function handleContact(event) {
-  event.preventDefault();
-  
-  const form = document.getElementById('contactForm');
-  const inputs = form.querySelectorAll('input, textarea');
-  const data = {
-    name: inputs[0].value,
-    email: inputs[1].value,
-    organization: inputs[2].value,
-    message: inputs[3].value
-  };
-  
-  try {
-    // Добавляем контакт в Brevo
-    const brevoResponse = await fetch('https://api.brevo.com/v3/contacts', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'api-key': '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'
+
       },
       body: JSON.stringify({
         email: data.email,
