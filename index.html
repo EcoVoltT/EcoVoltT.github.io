@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html class="dark" lang="fr">
 <head>
@@ -295,292 +296,36 @@
   .impact-title { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
   .impact-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
 
-  /* INVESTORS - ПРОВЕРКА И ИСПРАВЛЕНИЯ */
-
-/* ✅ ХОРОШО - Эти стили работают правильно: */
-.investors-section { background: rgba(3,13,7,0.8); }
-.kpi-num { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: var(--blue-bright); }
-.kpi-label { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
-.contact-form { display: flex; flex-direction: column; gap: 12px; }
-.contact-form input:focus, .contact-form textarea:focus { border-color: rgba(0,166,237,0.5); }
-.contact-form button:hover { opacity: .88; }
-
-/* ❌ ПРОБЛЕМЫ И ИСПРАВЛЕНИЯ: */
-
-/* ПРОБЛЕМА 1: CSS Grid в email может не работать */
-/* ❌ БЫЛО: */
-.investors-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 48px; }
-
-/* ✅ ИСПРАВЛЕНИЕ - для мобильной адаптивности: */
-.investors-grid { 
-  display: grid; 
-  grid-template-columns: 1fr 1fr; 
-  gap: 80px; 
-  align-items: start; 
-  margin-top: 48px;
-}
-@media (max-width: 900px) {
-  .investors-grid { grid-template-columns: 1fr; gap: 40px; }
-}
-
-/* ПРОБЛЕМА 2: Gap 16px может быть маловат для видимости */
-/* ❌ БЫЛО: */
-.kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
-
-/* ✅ ИСПРАВЛЕНИЕ - увеличен gap для лучшей читаемости: */
-.kpi-grid { 
-  display: grid; 
-  grid-template-columns: 1fr 1fr; 
-  gap: 20px;  /* было 16px */
-  margin-top: 28px; 
-}
-
-/* ПРОБЛЕМА 3: Padding в .investor-contact может быть мал на мобильных */
-/* ❌ БЫЛО: */
-.investor-contact {
-  background: rgba(13,42,28,0.7); 
-  border: 1px solid var(--border);
-  border-radius: 24px; 
-  padding: 36px;
-}
-
-/* ✅ ИСПРАВЛЕНИЕ - адаптивный padding: */
-.investor-contact {
-  background: rgba(13,42,28,0.7); 
-  border: 1px solid var(--border);
-  border-radius: 24px; 
-  padding: 36px;
-  box-shadow: 0 0 40px rgba(0,166,237,0.08);
-}
-@media (max-width: 600px) {
-  .investor-contact { padding: 24px; }
-}
-
-/* ПРОБЛЕМА 4: Input/Textarea могут быть лучше стилизованы */
-/* ❌ БЫЛО: */
-.contact-form input, .contact-form textarea {
-  background: rgba(255,255,255,0.05); 
-  border: 1px solid var(--border);
-  border-radius: 12px; 
-  padding: 14px 18px;
-  color: var(--text); 
-  font-family: 'Inter', sans-serif; 
-  font-size: 15px;
-  outline: none; 
-  transition: border-color .2s; 
-  resize: none;
-}
-
-/* ✅ ИСПРАВЛЕНИЕ - лучший стиль и состояния: */
-.contact-form input, 
-.contact-form textarea {
-  background: rgba(255,255,255,0.05); 
-  border: 1px solid var(--border);
-  border-radius: 12px; 
-  padding: 14px 18px;
-  color: var(--text); 
-  font-family: 'Inter', sans-serif; 
-  font-size: 15px;
-  outline: none; 
-  transition: all .2s; /* было только border-color */
-  resize: none;
-  width: 100%; /* добавлено */
-  box-sizing: border-box; /* добавлено */
-}
-
-/* ПРОБЛЕМА 5: Кнопка может быть лучше выглядеть */
-/* ❌ БЫЛО: */
-.contact-form button {
-  background: var(--blue); 
-  color: #001a2e;
-  border: none; 
-  border-radius: 12px; 
-  padding: 15px;
-  font-family: 'Space Grotesk', sans-serif; 
-  font-weight: 700; 
-  font-size: 15px;
-  cursor: pointer; 
-  transition: opacity .2s;
-}
-
-/* ✅ ИСПРАВЛЕНИЕ - с более красивым эффектом: */
-.contact-form button {
-  background: var(--blue); 
-  color: #001a2e;
-  border: none; 
-  border-radius: 12px; 
-  padding: 15px;
-  font-family: 'Space Grotesk', sans-serif; 
-  font-weight: 700; 
-  font-size: 15px;
-  cursor: pointer; 
-  transition: all .2s;
-  width: 100%; /* добавлено */
-  box-shadow: 0 0 16px rgba(0,166,237,0.3); /* добавлено */
-}
-
-.contact-form button:hover { 
-  opacity: .88;
-  box-shadow: 0 0 28px rgba(0,166,237,0.5); /* добавлено */
-  transform: translateY(-1px); /* добавлено */
-}
-
-.contact-form button:active {
-  transform: translateY(0); /* добавлено */
-}
-
-/* ИТОГОВЫЙ ИСПРАВЛЕННЫЙ КОД: */
-
-/* INVESTORS */
-.investors-section { background: rgba(3,13,7,0.8); }
-
-.investors-grid { 
-  display: grid; 
-  grid-template-columns: 1fr 1fr; 
-  gap: 80px; 
-  align-items: start; 
-  margin-top: 48px; 
-}
-
-.kpi-grid { 
-  display: grid; 
-  grid-template-columns: 1fr 1fr; 
-  gap: 20px; /* увеличен с 16px */
-  margin-top: 28px; 
-}
-
-.kpi-card {
-  background: rgba(13,42,28,0.6); 
-  border: 1px solid var(--border);
-  border-radius: 16px; 
-  padding: 20px;
-}
-
-.kpi-num { 
-  font-family: 'Space Grotesk', sans-serif; 
-  font-size: 28px; 
-  font-weight: 700; 
-  color: var(--blue-bright); 
-}
-
-.kpi-label { 
-  font-size: 12px; 
-  color: var(--text-muted); 
-  margin-top: 4px; 
-}
-
-.investor-contact {
-  background: rgba(13,42,28,0.7); 
-  border: 1px solid var(--border);
-  border-radius: 24px; 
-  padding: 36px;
-  box-shadow: 0 0 40px rgba(0,166,237,0.08);
-}
-
-.contact-form { 
-  display: flex; 
-  flex-direction: column; 
-  gap: 12px; 
-}
-
-.contact-form input, 
-.contact-form textarea {
-  background: rgba(255,255,255,0.05); 
-  border: 1px solid var(--border);
-  border-radius: 12px; 
-  padding: 14px 18px;
-  color: var(--text); 
-  font-family: 'Inter', sans-serif; 
-  font-size: 15px;
-  outline: none; 
-  transition: all .2s; 
-  resize: none;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.contact-form input::placeholder, 
-.contact-form textarea::placeholder { 
-  color: var(--text-muted); 
-}
-
-.contact-form input:focus, 
-.contact-form textarea:focus { 
-  border-color: rgba(0,166,237,0.5);
-  background: rgba(255,255,255,0.08); /* добавлено */
-}
-
-.contact-form button {
-  background: var(--blue); 
-  color: #001a2e;
-  border: none; 
-  border-radius: 12px; 
-  padding: 15px;
-  font-family: 'Space Grotesk', sans-serif; 
-  font-weight: 700; 
-  font-size: 15px;
-  cursor: pointer; 
-  transition: all .2s;
-  width: 100%;
-  box-shadow: 0 0 16px rgba(0,166,237,0.3);
-}
-
-.contact-form button:hover { 
-  opacity: .88;
-  box-shadow: 0 0 28px rgba(0,166,237,0.5);
-  transform: translateY(-1px);
-}
-
-.contact-form button:active {
-  transform: translateY(0);
-}
-
-/* МОБИЛЬНАЯ АДАПТИВНОСТЬ */
-@media (max-width: 900px) {
-  .investors-grid { 
-    grid-template-columns: 1fr; 
-    gap: 40px; 
+  /* INVESTORS */
+  .investors-section { background: rgba(3,13,7,0.8); }
+  .investors-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 48px; }
+  .kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
+  .kpi-card {
+    background: rgba(13,42,28,0.6); border: 1px solid var(--border);
+    border-radius: 16px; padding: 20px;
   }
-  
-  .investor-contact { 
-    padding: 24px; 
+  .kpi-num { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: var(--blue-bright); }
+  .kpi-label { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+  .investor-contact {
+    background: rgba(13,42,28,0.7); border: 1px solid var(--border);
+    border-radius: 24px; padding: 36px;
   }
-}
-
-@media (max-width: 600px) {
-  .investors-grid { 
-    margin-top: 32px; 
+  .contact-form { display: flex; flex-direction: column; gap: 12px; }
+  .contact-form input, .contact-form textarea {
+    background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+    border-radius: 12px; padding: 14px 18px;
+    color: var(--text); font-family: 'Inter', sans-serif; font-size: 15px;
+    outline: none; transition: border-color .2s; resize: none;
   }
-  
-  .kpi-grid { 
-    gap: 12px; 
-  }
-  
-  .kpi-card { 
-    padding: 16px; 
-  }
-  
-  .kpi-num { 
-    font-size: 24px; 
-  }
-  
-  .investor-contact { 
-    padding: 20px; 
-    border-radius: 16px;
-  }
-  
-  .contact-form input,
-  .contact-form textarea {
-    padding: 12px 14px;
-    font-size: 14px;
-  }
-  
+  .contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--text-muted); }
+  .contact-form input:focus, .contact-form textarea:focus { border-color: rgba(0,166,237,0.5); }
   .contact-form button {
-    padding: 12px;
-    font-size: 14px;
+    background: var(--blue); color: #001a2e;
+    border: none; border-radius: 12px; padding: 15px;
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 15px;
+    cursor: pointer; transition: opacity .2s;
   }
-}
-
+  .contact-form button:hover { opacity: .88; }
 
   /* CARE */
   .care-section { background: rgba(5,20,13,0.6); }
@@ -638,6 +383,7 @@
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <a class="logo" href="#">EcoVolt</a>
@@ -652,6 +398,7 @@
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-bg-img"></div>
   <div class="hero-overlay"></div>
@@ -664,26 +411,23 @@
 
     <div class="email-wrap">
       <p class="email-label">📬 Rejoignez la liste d'attente — soyez le premier informé du lancement :</p>
-      
-      <form class="email-form" id="emailForm" action="https://d59ce063.sibforms.com/serve/MUIFALLClLUbiA45Z1FJ-6qFmRBKSbwx9okNOhvwE1MMzFVlGIoS-K2OXzOncpJ74jh8jK42ju0juJuLJBmsbhoMMcT0ReRWRNhgqnp7nrG9tuVa2lnzg4vaBqBDolA_ceXkUuhD6O0G7EUz4ymzGMZ7zDAiDSmTLQW7Vko3t-7M_OPbsnEuHC1Tr0K3Ey8BA6sjZC_ef4z65AzrXQ==" method="POST" target="hidden_iframe" onsubmit="handleEmail(event)">
-        <input type="email" id="emailInput" name="EMAIL" placeholder="votre@email.com" required/>
+      <form class="email-form" id="emailForm" onsubmit="handleEmail(event)">
+        <input type="email" id="emailInput" placeholder="votre@email.com" required/>
         <button type="submit">Rejoindre →</button>
       </form>
-
-      <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-
       <p class="email-note">Déjà <strong id="waitCount">247</strong> personnes inscrites. Sans spam.</p>
       <p class="email-success" id="emailSuccess">✓ Vous êtes sur la liste ! On vous contacte bientôt.</p>
       <div class="counter-badge"><span></span>Liste active — Ukraine & Roumanie & France</div>
     </div>
 
     <div style="display:flex;gap:16px;flex-wrap:wrap;">
-      <button onclick="scrollToSection('preorder')" style="background:var(--blue);color:#001a2e;border:none;border-radius:12px;padding:16px 32px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;cursor:pointer;box-shadow:0 0 24px rgba(0,166,237,0.35);transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">Pré-commander maintenant</button>
-      <button onclick="scrollToSection('products')" style="background:transparent;color:var(--text);border:1px solid var(--border);border-radius:12px;padding:16px 32px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;cursor:pointer;transition:all .2s;" onmouseover="this.style.background='rgba(255,255,255,0.05)'" onmouseout="this.style.background='transparent'">Découvrir l'écosystème</button>
+      <button onclick="scrollTo('preorder')" style="background:var(--blue);color:#001a2e;border:none;border-radius:12px;padding:16px 32px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;cursor:pointer;box-shadow:0 0 24px rgba(0,166,237,0.35);transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">Pré-commander maintenant</button>
+      <button onclick="scrollTo('products')" style="background:transparent;color:var(--text);border:1px solid var(--border);border-radius:12px;padding:16px 32px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;cursor:pointer;transition:all .2s;" onmouseover="this.style.background='rgba(255,255,255,0.05)'" onmouseout="this.style.background='transparent'">Découvrir l'écosystème</button>
     </div>
   </div>
 </section>
 
+<!-- STATS -->
 <div class="stats-bar">
   <div class="stats-inner">
     <div class="stat-item">
@@ -701,6 +445,7 @@
   </div>
 </div>
 
+<!-- PRODUCTS -->
 <section id="products">
   <div class="container">
     <div class="section-eyebrow">L'écosystème EcoVolt</div>
@@ -717,7 +462,7 @@
         <div class="product-body">
           <div class="product-name">EcoVolt Boost</div>
           <div class="product-tag">Le chargeur IA</div>
-          <p class="product-desc">Analyse votre battery en 48h et optimise chaque cycle de charge. Prolonge la vie de votre batterie d'au moins 80% dès la première semaine.</p>
+          <p class="product-desc">Analyse votre batterie en 48h et optimise chaque cycle de charge. Prolonge la vie de votre batterie d'au moins 80% dès la première semaine.</p>
           <ul class="product-feats">
             <li>Diagnostic prédictif SoH en temps réel</li>
             <li>Charge adaptative 0–60V / 0–10A</li>
@@ -769,6 +514,7 @@
   </div>
 </section>
 
+<!-- PREORDER -->
 <section id="preorder" class="preorder-section">
   <div class="container">
     <div class="preorder-grid">
@@ -808,6 +554,7 @@
   </div>
 </section>
 
+<!-- DONATE -->
 <section id="donate" class="donate-section">
   <div class="container">
     <div class="donate-inner">
@@ -834,171 +581,190 @@
           <div class="impact-item">
             <div class="impact-emoji">🌱</div>
             <div class="impact-title">Impact vert</div>
-            <div class="impact-desc">Réduction des déchets électroniques</div>
+            <div class="impact-desc">Réduction des déchets électroniques en Europe</div>
           </div>
         </div>
       </div>
-      <div>
-         <div class="donate-amounts">
-           <button class="donate-btn-amount">10€</button>
-           <button class="donate-btn-amount active">25€</button>
-           <button class="donate-btn-amount">50€</button>
-           <button class="donate-btn-amount">100€</button>
-         </div>
-         <div class="donate-custom">
-           <input type="number" placeholder="Montant personnalisé (€)"/>
-         </div>
-         <button class="btn-donate">Faire un don securisé</button>
-         <p class="donate-secure">🔒 Transaction via Stripe sécurisé</p>
+      <div style="position:relative;z-index:1;">
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px;">Choisissez un montant :</p>
+        <div class="donate-amounts">
+          <button class="donate-btn-amount" onclick="setDonate(this,'10')">10€</button>
+          <button class="donate-btn-amount active" onclick="setDonate(this,'25')">25€</button>
+          <button class="donate-btn-amount" onclick="setDonate(this,'50')">50€</button>
+          <button class="donate-btn-amount" onclick="setDonate(this,'100')">100€</button>
+        </div>
+        <div class="donate-custom">
+          <input type="number" id="donateAmount" placeholder="Autre montant (€)" value="25" min="1"/>
+        </div>
+        <!-- Stripe donate link — remplacer VOTRE_LIEN par votre Payment Link Stripe -->
+        <a href="https://buy.stripe.com/9B67sK2As80m1qs1lc8Vi01" class="btn-donate" target="_blank" id="donateLink">
+          💚 Soutenir EcoVolt — 25€
+        </a>
+        <p class="donate-secure">🔒 Paiement sécurisé via Stripe · Reçu envoyé par email</p>
+        <div style="margin-top:20px;padding:14px 18px;background:rgba(0,0,0,0.2);border-radius:12px;border:1px solid var(--border);">
+          <p style="font-size:13px;color:var(--text-muted);">🇺🇦 Донат з України:</p>
+          <a href="https://fondy.eu/VOTRE_LIEN_DONATION_UA" style="color:var(--blue-bright);font-size:14px;font-weight:600;text-decoration:none;" target="_blank">Підтримати через Fondy →</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- CARE -->
+<section id="care" class="care-section">
+  <div class="container">
+    <div class="care-inner">
+      <div>
+        <div class="section-eyebrow">Abonnement</div>
+        <h2>EcoVolt Care</h2>
+        <p style="color:var(--text-muted);font-size:16px;margin-top:10px;">Votre ingénieur énergie numérique personnel. Surveillance continue, rapports prédictifs, garantie étendue.</p>
+        <ul class="care-feats">
+          <li class="care-feat"><div class="care-feat-icon">📊</div><div>Rapport mensuel de santé de vos batteries avec recommandations personnalisées</div></li>
+          <li class="care-feat"><div class="care-feat-icon">🔔</div><div>Alertes prédictives 15+ jours avant toute défaillance</div></li>
+          <li class="care-feat"><div class="care-feat-icon">🔧</div><div>Support prioritaire 24/7 et mises à jour IA automatiques</div></li>
+          <li class="care-feat"><div class="care-feat-icon">📜</div><div>Garantie étendue 48 mois + certification durabilité ESG</div></li>
+        </ul>
+      </div>
+      <div class="care-price-box">
+        <p style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-bright);margin-bottom:16px;">Plan mensuel</p>
+        <div class="care-price"><sup>€</sup>9,90 <sub>/ mois</sub></div>
+        <p style="font-size:13px;color:var(--text-muted);margin:14px 0 28px;">Sans engagement · Annulez à tout moment</p>
+        <button class="btn-preorder">Essai gratuit 30 jours →</button>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:8px;">Disponible avec EcoVolt Boost ou Shield</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTORS -->
 <section id="investors" class="investors-section">
   <div class="container">
-    <div class="section-eyebrow">Espace Investisseurs</div>
-    <h2>Rejoignez l'aventure EcoVolt</h2>
-    <p class="section-desc">Financement Bpifrance en cours. Nous levons des fonds pour accélérer notre industrialisation.</p>
+    <div class="section-eyebrow">Pour les investisseurs & partenaires</div>
+    <h2>Un projet stratégique pour la France et l'UE.</h2>
     <div class="investors-grid">
       <div>
+        <p style="color:var(--text-muted);font-size:16px;line-height:1.8;margin-bottom:28px;">EcoVolt crée une nouvelle catégorie — la Gestion Prédictive des Actifs Énergétiques. R&D à Montpellier, production UE, premier marché Ukraine, expansion EU. Financement Bpifrance en cours.</p>
         <div class="kpi-grid">
           <div class="kpi-card"><div class="kpi-num">12 Md€</div><div class="kpi-label">Marché total adressable</div></div>
           <div class="kpi-card"><div class="kpi-num">187%</div><div class="kpi-label">ROI estimé sur 3 ans</div></div>
           <div class="kpi-card"><div class="kpi-num">350K€</div><div class="kpi-label">Financement Bpifrance</div></div>
           <div class="kpi-card"><div class="kpi-num">18 mois</div><div class="kpi-label">Délai de retour</div></div>
         </div>
+        <div style="margin-top:24px;">
+          <a href="mailto:invest@ecovoltt.fr" style="display:inline-flex;align-items:center;gap:8px;color:var(--blue-bright);font-size:14px;text-decoration:none;font-weight:600;">📄 Demander le Business Plan complet →</a>
+        </div>
       </div>
       <div class="investor-contact">
-        <form class="contact-form" id="contactForm" onsubmit="handleContact(event)">
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;margin-bottom:6px;">Contactez-nous</h3>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:24px;">Investisseurs, partenaires, distributeurs — écrivez-nous directement.</p>
+        <form class="contact-form" onsubmit="handleContact(event)">
           <input type="text" placeholder="Votre nom" required/>
           <input type="email" placeholder="Email professionnel" required/>
           <input type="text" placeholder="Organisation / Fonds (optionnel)"/>
           <textarea rows="4" placeholder="Votre message..."></textarea>
           <button type="submit">Envoyer →</button>
         </form>
-        <p class="email-success" id="contactOk" style="display:none; color:#4ade80;">✓ Merci ! Votre message a été envoyé. Notre manager va vous contacter.</p>
+        <p id="contactOk" style="display:none;color:#4ade80;font-size:14px;margin-top:12px;text-align:center;">✓ Message reçu. Réponse sous 24h.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="care" class="care-section">
-  <div class="container">
-    <div class="care-inner">
-      <div>
-        <div class="section-eyebrow">EcoVolt Care</div>
-        <h2>Sérénité totale. Garantie à vie.</h2>
-        <ul class="care-feats">
-          <li class="care-feat"><div class="care-feat-icon">🔄</div><div><strong>Remplacement à neuf</strong> de votre batterie si notre IA ne prolonge pas sa durée de vie.</div></li>
-          <li class="care-feat"><div class="care-feat-icon">📊</div><div><strong>Rapports mensuels détaillés</strong> sur l'état de santé (SoH) de vos systèmes.</div></li>
-        </ul>
-      </div>
-      <div class="care-price-box">
-        <div class="care-price">4<sup>,99€</sup><sub>/mois</sub></div>
-        <p class="text-sm mt-4 text-gray-400">Inclus gratuitement pendant 3 mois avec votre pré-commande</p>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="logo" href="#">EcoVolt</a>
-        <p>Intelligence au Cœur de Chaque Batterie.</p>
+        <div class="logo" style="font-size:20px;">EcoVolt</div>
+        <p>Écosystèmes énergétiques intelligents. R&D à Montpellier, France. Production UE (Roumanie).</p>
+        <p style="margin-top:10px;font-size:13px;color:var(--text-muted);">contact@ecovoltt.fr</p>
       </div>
       <div class="footer-col">
-        <h4>Navigation</h4>
+        <h4>Produits</h4>
         <ul>
-          <li><a href="#products">Produits</a></li>
-          <li><a href="#preorder">Pré-commande</a></li>
+          <li><a href="#products">EcoVolt Boost</a></li>
+          <li><a href="#products">EcoVolt Shield</a></li>
+          <li><a href="#products">EcoVolt Core</a></li>
+          <li><a href="#care">EcoVolt Care</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Entreprise</h4>
+        <ul>
+          <li><a href="#investors">Investisseurs</a></li>
+          <li><a href="#donate">Soutenir</a></li>
+          <li><a href="mailto:contact@ecovoltt.fr">Contact</a></li>
+          <li><a href="#">Bpifrance</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Légal</h4>
         <ul>
           <li><a href="#">Mentions légales</a></li>
+          <li><a href="#">Confidentialité</a></li>
           <li><a href="#">CGV</a></li>
+          <li><a href="#">RGPD</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 EcoVolt. Tous droits réservés.</p>
+      <p>© 2025 EcoVolt SAS — Montpellier, France. Tous droits réservés.</p>
+      <div class="footer-links">
+        <a href="#">LinkedIn</a>
+        <a href="#">YouTube</a>
+        <a href="#">Telegram</a>
+        <a href="#">Instagram</a>
+      </div>
     </div>
   </div>
 </footer>
 
 <script>
-// Безопасный и плавный скролл к разделам
-function scrollToSection(id) {
-  const element = document.getElementById(id);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-  }
+function scrollTo(id) {
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
-
-// Отправка первой формы в Brevo (с задержкой для надежности передачи данных)
 function handleEmail(e) {
-  setTimeout(function() {
-    document.getElementById('emailForm').style.display = 'none';
-    document.getElementById('emailSuccess').style.display = 'block';
-    
-    const waitCountEl = document.getElementById('waitCount');
-    if (waitCountEl) {
-      waitCountEl.textContent = parseInt(waitCountEl.textContent || 0) + 1;
-    }
-  }, 500);
+  e.preventDefault();
+  document.getElementById('emailForm').style.display = 'none';
+  document.getElementById('emailSuccess').style.display = 'block';
+  document.getElementById('waitCount').textContent = parseInt(document.getElementById('waitCount').textContent) + 1;
+  // TODO: connecter à Mailchimp / ConvertKit API
 }
-
-// Переключение интерфейса формы инвесторов
 function handleContact(e) {
-  e.preventDefault(); // Пока форма не подключена к Brevo, блокируем перезагрузку
-  document.getElementById('contactForm').style.display = 'none';
+  e.preventDefault();
+  e.target.style.display = 'none';
   document.getElementById('contactOk').style.display = 'block';
+  // TODO: connecter à Formspree ou votre CRM
 }
-<script>
-// Безопасный и плавный скролл к разделам
-function scrollToSection(id) {
-  const element = document.getElementById(id);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
+const donateLinks = {
+  '10': 'https://buy.stripe.com/7sY14mfne5Se2uwd3U8Vi02',
+  '25': 'https://buy.stripe.com/9B67sK2As80m1qs1lc8Vi01',
+  '50': 'https://buy.stripe.com/00w4gyfnea8u6KMd3U8Vi03',
+  '100': 'https://buy.stripe.com/cNi14mb6Ybcyede1lc8Vi04'
+};
+function setDonate(btn, amount) {
+  document.querySelectorAll('.donate-btn-amount').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('donateAmount').value = amount;
+  document.getElementById('donateLink').textContent = '💚 Soutenir EcoVolt — ' + amount + '€';
+  if(donateLinks[amount]) {
+    document.getElementById('donateLink').href = donateLinks[amount];
   }
 }
-
-// Отправка первой формы в Brevo (с задержкой для надежности передачи данных)
-function handleEmail(e) {
-  setTimeout(function() {
-    document.getElementById('emailForm').style.display = 'none';
-    document.getElementById('emailSuccess').style.display = 'block';
-    
-    const waitCountEl = document.getElementById('waitCount');
-    if (waitCountEl) {
-      waitCountEl.textContent = parseInt(waitCountEl.textContent || 0) + 1;
-    }
-  }, 500);
-}
-
-// ========================================
-// ФОРМА ИНВЕСТОРОВ + BREVO ИНТЕГРАЦИЯ
-// ========================================
-
-      },
-      body: JSON.stringify({
-        email: data.email,
-        attributes: {
-          FIRSTNAME: data.name,
-          ORGANIZATION: data.organization || 'Non spécifié',
-          MESSAGE: data.message
-        },
-        listIds: [7],
-        updateEnabled: true
-      })
-    });
-
-}
+document.getElementById('donateAmount').addEventListener('input', function() {
+  const v = this.value;
+  document.querySelectorAll('.donate-btn-amount').forEach(b => b.classList.remove('active'));
+  if(v) document.getElementById('donateLink').textContent = '💚 Soutenir EcoVolt — ' + v + '€';
+});
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').style.background = window.scrollY > 60 ? 'rgba(5,20,13,0.98)' : 'rgba(5,20,13,0.82)';
+});
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+  });
+});
 </script>
-
 </body>
 </html>
