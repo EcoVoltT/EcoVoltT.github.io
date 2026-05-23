@@ -1,14 +1,21 @@
 [build]
-  command = "echo 'No build needed for static site'"
+  command = "echo 'Static site - no build required'"
+  functions = "netlify/functions"
   publish = "."
 
 [dev]
-  framework = "#custom"
+  functions = "netlify/functions"
+  port = 8888
 
 [[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
+  from = "/.netlify/functions/:name"
+  to = "/.netlify/functions/:name"
   status = 200
 
-[context.production.environment]
-  BREVO_API_KEY = ""
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+    Cache-Control = "no-cache, no-store, must-revalidate"
