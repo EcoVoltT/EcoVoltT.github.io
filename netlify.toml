@@ -1,0 +1,14 @@
+[build]
+  command = "echo 'No build needed for static site'"
+  publish = "."
+
+[dev]
+  framework = "#custom"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+[context.production.environment]
+  BREVO_API_KEY = ""
