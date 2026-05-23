@@ -1,0 +1,9 @@
+{
+  "name": "ecovolt-website",
+  "version": "1.0.0",
+  "description": "EcoVolt - AI-powered battery management system",
+  "main": "index.html",
+  "dependencies": {
+    "axios": "^1.6.0"
+  }
+}
