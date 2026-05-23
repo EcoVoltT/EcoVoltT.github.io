@@ -28,15 +28,11 @@
     overflow-x: hidden;
   }
   .font-head { font-family: 'Space Grotesk', sans-serif; }
-
-  /* GLASS */
   .glass {
     background: rgba(13,42,28,0.7);
     backdrop-filter: blur(20px);
     border: 1px solid var(--border);
   }
-
-  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     height: 80px;
@@ -61,8 +57,6 @@
     box-shadow: 0 0 16px rgba(0,166,237,0.3);
   }
   .btn-nav:hover { box-shadow: 0 0 28px rgba(0,166,237,0.5); transform: translateY(-1px); }
-
-  /* HERO */
   .hero {
     min-height: 100vh; padding-top: 80px;
     display: flex; align-items: center;
@@ -70,7 +64,7 @@
   }
   .hero-bg-img {
     position: absolute; inset: 0;
-    background: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCwER4fARR7KSxcZe5rAF9QHwuRWMutRa2qyUjNtOpdFDQootkiHBUHN6AZKjeoc_GwIBcsO5etS8UCYrEPmqeQpH91tNOPRo_PmK2HB66OWX8D69PYX8_Pl6Y7W[...]
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23051409" width="1200" height="800"/></svg>') no-repeat center/cover;
     opacity: 0.35;
   }
   .hero-overlay {
@@ -87,7 +81,6 @@
     background-size: 64px 64px;
   }
   .hero-content { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; padding: 80px 40px; }
-
   .pill {
     display: inline-flex; align-items: center; gap: 8px;
     background: rgba(0,166,237,0.1); border: 1px solid rgba(0,166,237,0.3);
@@ -97,7 +90,6 @@
   }
   .pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); animation: blink 2s infinite; }
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
-
   h1 {
     font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(40px, 6vw, 76px);
@@ -106,8 +98,6 @@
   }
   h1 .accent { color: var(--blue); }
   .hero-sub { font-size: 18px; color: var(--text-muted); max-width: 580px; line-height: 1.75; margin-bottom: 40px; }
-
-  /* EMAIL FORM */
   .email-wrap { margin-bottom: 48px; }
   .email-label { font-size: 13px; color: var(--text-muted); margin-bottom: 14px; }
   .email-form { display: flex; gap: 10px; max-width: 500px; flex-wrap: wrap; }
@@ -136,8 +126,6 @@
     border-radius: 100px; padding: 6px 16px; font-size: 12px; color: #4ade80; margin-top: 14px;
   }
   .counter-badge span { width: 6px; height: 6px; border-radius: 50%; background: #4ade80; animation: blink 2s infinite; }
-
-  /* STATS */
   .stats-bar {
     background: rgba(13,42,28,0.5);
     border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
@@ -152,22 +140,18 @@
   }
   .stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 700; color: #fff; }
   .stat-label { font-size: 13px; color: var(--text-muted); margin-top: 3px; }
-
-  /* SECTIONS */
   section { padding: 100px 0; }
   .container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
   .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue-bright); margin-bottom: 14px; }
   h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(30px, 4vw, 46px); font-weight: 700; letter-spacing: -1px; margin-bottom: 16px; }
   .section-desc { color: var(--text-muted); font-size: 17px; max-width: 540px; line-height: 1.75; }
-
-  /* PRODUCTS */
   .products-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 60px; }
   .product-card {
     background: rgba(13,42,28,0.7); backdrop-filter: blur(20px);
     border: 1px solid var(--border); border-radius: 24px; padding: 0;
     display: flex; flex-direction: column; overflow: hidden;
     transition: border-color .3s, transform .3s;
-    cursor: pointer;
+    cursor: pointer; text-decoration: none; color: inherit;
   }
   .product-card:hover { border-color: rgba(0,166,237,0.35); transform: translateY(-5px); }
   .product-img { position: relative; height: 220px; overflow: hidden; }
@@ -195,8 +179,6 @@
     cursor: pointer; transition: all .2s; text-align: center; text-decoration: none; display: block;
   }
   .btn-card:hover { background: var(--blue); color: #001a2e; border-color: var(--blue); }
-
-  /* PREORDER */
   .preorder-section { background: rgba(5,20,13,0.8); }
   .preorder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
   .preorder-card {
@@ -243,8 +225,6 @@
   .progress-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 13px; }
   .progress-bar { background: rgba(255,255,255,0.06); border-radius: 100px; height: 6px; overflow: hidden; }
   .progress-fill { background: var(--blue); height: 100%; width: 71%; border-radius: 100px; }
-
-  /* DONATE */
   .donate-section { background: var(--green-dark); }
   .donate-inner {
     background: linear-gradient(135deg, rgba(13,42,28,0.9) 0%, rgba(0,80,120,0.15) 100%);
@@ -295,8 +275,6 @@
   .impact-emoji { font-size: 24px; margin-bottom: 8px; }
   .impact-title { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
   .impact-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
-
-  /* INVESTORS */
   .investors-section { background: rgba(3,13,7,0.8); }
   .investors-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 48px; }
   .kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
@@ -326,8 +304,6 @@
     cursor: pointer; transition: opacity .2s;
   }
   .contact-form button:hover { opacity: .88; }
-
-  /* CARE */
   .care-section { background: rgba(5,20,13,0.6); }
   .care-inner {
     background: rgba(13,42,28,0.7); backdrop-filter: blur(20px);
@@ -349,509 +325,6 @@
   .care-price { font-family: 'Space Grotesk', sans-serif; font-size: 52px; font-weight: 700; line-height: 1; }
   .care-price sup { font-size: 24px; vertical-align: super; }
   .care-price sub { font-size: 16px; color: var(--text-muted); font-weight: 400; }
-
-  /* FOOTER */
   footer { background: var(--green-darkest); border-top: 1px solid var(--border); padding: 64px 0 32px; }
   .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
-  .footer-brand p { color: var(--text-muted); font-size: 14px; margin-top: 12px; line-height: 1.7; max-width: 260px; }
-  .footer-col h4 { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 16px; }
-  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .footer-col ul a { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color .2s; }
-  .footer-col ul a:hover { color: var(--blue-bright); }
-  .footer-bottom { border-top: 1px solid var(--border); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: gap; }
-  .footer-bottom p { color: var(--text-muted); font-size: 13px; }
-  .footer-links { display: flex; gap: 24px; }
-  .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 13px; transition: color .2s; }
-  .footer-links a:hover { color: #fff; }
-
-  /* PREORDER LIST */
-  .pre-feats { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
-  .pre-feats li { display: flex; gap: 10px; font-size: 15px; align-items: flex-start; }
-  .pre-feats li::before { content: '→'; color: var(--blue); font-weight: 700; flex-shrink: 0; }
-
-  /* MOBILE */
-  @media (max-width: 900px) {
-    .nav-links { display: none; }
-    .stats-inner, .products-grid, .preorder-grid, .donate-inner, .investors-grid, .care-inner, .footer-grid { grid-template-columns: 1fr; }
-    .container { padding: 0 24px; }
-    section { padding: 64px 0; }
-    .hero-content { padding: 60px 24px; }
-    .care-inner, .donate-inner { padding: 36px 24px; }
-    h1 { font-size: 38px; }
-  }
-</style>
-</head>
-<body>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <a class="logo" href="#">EcoVolt</a>
-    <ul class="nav-links">
-      <li><a href="#products">Produits</a></li>
-      <li><a href="#preorder">Pré-commande</a></li>
-      <li><a href="#donate">Soutenir</a></li>
-      <li><a href="#investors">Investisseurs</a></li>
-      <li><a href="#care">Care</a></li>
-    </ul>
-    <a href="#preorder" class="btn-nav">Pré-commander →</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg-img"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-content">
-    <div class="pill"><div class="pill-dot"></div>Deep-Tech Battery Intelligence · Montpellier, France 🇫🇷</div>
-    <h1>Intelligence au Cœur de <span class="accent">Chaque Batterie.</span></h1>
-    <p class="hero-sub">EcoVolt prolonge la durée de vie de vos batteries de 2 à 3 fois grâce à notre IA auto-apprenante. Arrêtez de remplacer — commencez à optimiser.</p>
-
-    <div class="email-wrap">
-      <p class="email-label">📬 Rejoignez la liste d'attente — soyez le premier informé du lancement :</p>
-      <form class="email-form" id="emailForm" onsubmit="handleEmailBrevo(event)">
-        <input type="email" id="emailInput" placeholder="votre@email.com" required/>
-        <button type="submit" id="emailBtn">Rejoindre →</button>
-      </form>
-      <p class="email-note">Déjà <strong id="waitCount">247</strong> personnes inscrites. Sans spam.</p>
-      <p class="email-success" id="emailSuccess">✓ Vous êtes sur la liste ! Vérifiez votre email.</p>
-      <p class="email-error" id="emailError"></p>
-      <div class="counter-badge"><span></span>Liste active — Ukraine & Roumanie & France</div>
-    </div>
-
-    <div style="display:flex;gap:16px;flex-wrap:wrap;">
-      <button onclick="scrollTo('preorder')" style="background:var(--blue);color:#001a2e;border:none;border-radius:12px;padding:16px 32px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;cursor:pointer;transition:all .2s;">Pré-commander</button>
-      <button onclick="scrollTo('products')" style="background:transparent;color:var(--text);border:1px solid var(--border);border-radius:12px;padding:16px 32px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;cursor:pointer;transition:all .2s;">Voir l'écosystème</button>
-    </div>
-  </div>
-</section>
-
-<!-- STATS -->
-<div class="stats-bar">
-  <div class="stats-inner">
-    <div class="stat-item">
-      <div class="stat-icon">♻️</div>
-      <div><div class="stat-num">60% moins</div><div class="stat-label">de déchets électroniques</div></div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-icon">💶</div>
-      <div><div class="stat-num">800€ économisés</div><div class="stat-label">par foyer par an en moyenne</div></div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-icon">⚡</div>
-      <div><div class="stat-num">×2–3 plus long</div><div class="stat-label">durée de vie des batteries</div></div>
-    </div>
-  </div>
-</div>
-
-<!-- PRODUCTS -->
-<section id="products">
-  <div class="container">
-    <div class="section-eyebrow">L'écosystème EcoVolt</div>
-    <h2>Quatre produits. Un seul cerveau.</h2>
-    <p class="section-desc">Chaque appareil EcoVolt communique via notre IA pour maximiser la durée de vie de vos batteries.</p>
-    <div class="products-grid">
-
-      <a href="./boost.html" class="product-card" style="text-decoration: none; color: inherit; cursor: pointer; display: flex; flex-direction: column;">
-        <div class="product-img">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkrLj6SfXffPLVshhz5zT5mzVDe2_eQMcEHtZh8QqgtBbGn-CeKaEh9JUW4iUwQ3uB8AztA4QnM0xSQO5hl_H521lTKpxN5Q8KJuzz3r36huReMn6YJof029oSC[...]" alt="EcoVolt Boost"/>
-          <div class="product-img-overlay"></div>
-          <div class="product-img-badge"><i></i>MVP disponible</div>
-        </div>
-        <div class="product-body">
-          <div class="product-name">EcoVolt Boost</div>
-          <div class="product-tag">Le chargeur IA</div>
-          <p class="product-desc">Analyse votre batterie en 48h et optimise chaque cycle de charge. Prolonge la vie de votre batterie d'au moins 80% dès la première semaine.</p>
-          <ul class="product-feats">
-            <li>Diagnostic prédictif SoH en temps réel</li>
-            <li>Charge adaptative 0–60V / 0–10A</li>
-            <li>Mises à jour OTA automatiques</li>
-          </ul>
-          <div class="btn-card" onclick="event.preventDefault(); window.location.href='./boost.html';" style="background: var(--blue); color: #001a2e; border-color: var(--blue);">Pré-commander</div>
-        </div>
-      </a>
-
-      <a href="./shield.html" class="product-card" style="text-decoration: none; color: inherit; cursor: pointer; display: flex; flex-direction: column;">
-        <div class="product-img">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuClNoZD5zgr--L64zwTnSNj3hyrmJ_sdRvwZahk4WMZR1mLyBVijuxLVQeBujNBcDtWricoQa03MedmG4rt9GrJWwWVJAyMcZqccTZd4HrWWJkxJseeEdiemc2UB[...]" alt="EcoVolt Shield"/>
-          <div class="product-img-overlay"></div>
-          <div class="product-img-badge"><i></i>Real-time Monitoring</div>
-        </div>
-        <div class="product-body">
-          <div class="product-name">EcoVolt Shield</div>
-          <div class="product-tag">Le relais intelligent</div>
-          <p class="product-desc">Commutation ultra-rapide (&lt;20ms) entre réseau et secours. Protège vos équipements contre 99% des surtensions et micro-coupures.</p>
-          <ul class="product-feats">
-            <li>Commutation &lt;20ms sans interruption</li>
-            <li>Surveillance qualité réseau 24/7</li>
-            <li>Relais 30A, 250VAC</li>
-          </ul>
-          <div class="btn-card" onclick="event.preventDefault(); window.location.href='./shield.html';" style="background: var(--blue); color: #001a2e; border-color: var(--blue);">Pré-commander</div>
-        </div>
-      </a>
-
-      <a href="./core.html" class="product-card" style="text-decoration: none; color: inherit; cursor: pointer; display: flex; flex-direction: column;">
-        <div class="product-img">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_IiYHGqtRo9cF5fwCRmItimWrzQUqGNN51_MeQVGmFMYcgzWtA77D6vRwq3Ti6gJ5iDmaLZEfUX6wEYEc8LuW2mb78Pq0-rHWwa9qPE31u3jPdGbxcdrAOVfbq[...]" alt="EcoVolt Core"/>
-          <div class="product-img-overlay"></div>
-          <div class="product-img-badge"><i></i>Predictive Analytics</div>
-        </div>
-        <div class="product-body">
-          <div class="product-name">EcoVolt Core</div>
-          <div class="product-tag">Le cerveau de l'écosystème</div>
-          <p class="product-desc">Hub central IA qui coordonne tous vos appareils EcoVolt. Prévoit votre consommation sur 24–48h et optimise automatiquement votre énergie.</p>
-          <ul class="product-feats">
-            <li>IA locale + synchronisation cloud</li>
-            <li>Zigbee 3.0, Wi-Fi 6, LTE-M</li>
-            <li>Intégration Home Assistant</li>
-          </ul>
-          <div class="btn-card" onclick="event.preventDefault(); window.location.href='./core.html';">Rejoindre la liste d'attente</div>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- PREORDER -->
-<section id="preorder" class="preorder-section">
-  <div class="container">
-    <div class="preorder-grid">
-      <div>
-        <div class="section-eyebrow">Pré-commande · Offre de lancement</div>
-        <h2>Soyez parmi les 200 premiers.</h2>
-        <p class="section-desc">Prix de lancement exclusif + 3 mois EcoVolt Care offerts + livraison prioritaire dès la production.</p>
-        <ul class="pre-feats">
-          <li>Prix réduit de 50€ par rapport au prix final</li>
-          <li>Livraison prioritaire dès la production (Q3 2025)</li>
-          <li>3 mois d'abonnement EcoVolt Care offerts</li>
-          <li>Accès au groupe bêta-testeurs privé</li>
-          <li>Remboursement complet si délai non respecté</li>
-        </ul>
-        <div style="margin-top:32px;padding:20px;background:rgba(0,166,237,0.06);border:1px solid rgba(0,166,237,0.15);border-radius:14px;">
-          <p style="font-size:13px;color:var(--text-muted);">🔒 Paiement 100% sécurisé</p>
-          <p style="font-size:14px;margin-top:6px;">Europe & Roumanie via <strong>Stripe</strong> · Ukraine via <strong>Fondy</strong></p>
-        </div>
-      </div>
-      <div class="preorder-card">
-        <div class="early-badge">⚡ Early Bird — Places limitées</div>
-        <p class="price-old">299€</p>
-        <div class="price-main">249€</div>
-        <p class="price-sub">EcoVolt Boost — Chargeur IA</p>
-        <a href="https://buy.stripe.com/bJecN48YQ0xU6KMd3U8Vi00" class="btn-preorder" target="_blank">💳 Commander — Europe / Roumanie</a>
-        <a href="https://fondy.eu/00000000001" class="btn-fondy" target="_blank">🇺🇦 Замовити — Україна (Fondy)</a>
-        <p class="preorder-note">🔒 Sans frais cachés · Remboursement garanti</p>
-        <div class="progress-wrap">
-          <div class="progress-top">
-            <span style="font-size:13px;color:var(--text-muted);">Places réservées</span>
-            <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--blue-bright);">57 / 200</span>
-          </div>
-          <div class="progress-bar"><div class="progress-fill" style="width:28.5%"></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DONATE -->
-<section id="donate" class="donate-section">
-  <div class="container">
-    <div class="donate-inner">
-      <div style="position:relative;z-index:1;">
-        <div class="section-eyebrow">Soutenir le projet</div>
-        <h2>Aidez-nous à construire l'avenir de l'énergie.</h2>
-        <p class="section-desc" style="margin-bottom:0;">Chaque don va directement au développement R&D d'EcoVolt — algorithmes IA, prototypes, certifications CE.</p>
-        <div class="donate-impact">
-          <div class="impact-item">
-            <div class="impact-emoji">🔬</div>
-            <div class="impact-title">R&D IA</div>
-            <div class="impact-desc">Développement des algorithmes AI-BMS à Montpellier</div>
-          </div>
-          <div class="impact-item">
-            <div class="impact-emoji">🏭</div>
-            <div class="impact-title">Prototypes</div>
-            <div class="impact-desc">Fabrication des premiers appareils en Roumanie</div>
-          </div>
-          <div class="impact-item">
-            <div class="impact-emoji">📋</div>
-            <div class="impact-title">Certification CE</div>
-            <div class="impact-desc">Entrée officielle sur le marché européen</div>
-          </div>
-          <div class="impact-item">
-            <div class="impact-emoji">🌱</div>
-            <div class="impact-title">Impact vert</div>
-            <div class="impact-desc">Réduction des déchets électroniques en Europe</div>
-          </div>
-        </div>
-      </div>
-      <div style="position:relative;z-index:1;">
-        <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px;">Choisissez un montant :</p>
-        <div class="donate-amounts">
-          <button class="donate-btn-amount" onclick="setDonate(this,'10')">10€</button>
-          <button class="donate-btn-amount active" onclick="setDonate(this,'25')">25€</button>
-          <button class="donate-btn-amount" onclick="setDonate(this,'50')">50€</button>
-          <button class="donate-btn-amount" onclick="setDonate(this,'100')">100€</button>
-        </div>
-        <div class="donate-custom">
-          <input type="number" id="donateAmount" placeholder="Autre montant (€)" value="25" min="1"/>
-        </div>
-        <a href="https://buy.stripe.com/9B67sK2As80m1qs1lc8Vi01" class="btn-donate" target="_blank" id="donateLink">
-          💚 Soutenir EcoVolt — 25€
-        </a>
-        <p class="donate-secure">🔒 Paiement sécurisé via Stripe · Reçu envoyé par email</p>
-        <div style="margin-top:20px;padding:14px 18px;background:rgba(0,0,0,0.2);border-radius:12px;border:1px solid var(--border);">
-          <p style="font-size:13px;color:var(--text-muted);">🇺🇦 Донат з України:</p>
-          <a href="https://fondy.eu/00000000002" style="color:var(--blue-bright);font-size:14px;font-weight:600;text-decoration:none;" target="_blank">Підтримати через Fondy →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CARE -->
-<section id="care" class="care-section">
-  <div class="container">
-    <div class="care-inner">
-      <div>
-        <div class="section-eyebrow">Abonnement</div>
-        <h2>EcoVolt Care</h2>
-        <p style="color:var(--text-muted);font-size:16px;margin-top:10px;">Votre ingénieur énergie numérique personnel. Surveillance continue, rapports prédictifs, garantie étendue.</p>
-        <ul class="care-feats">
-          <li class="care-feat"><div class="care-feat-icon">📊</div><div>Rapport mensuel de santé de vos batteries avec recommandations personnalisées</div></li>
-          <li class="care-feat"><div class="care-feat-icon">🔔</div><div>Alertes prédictives 15+ jours avant toute défaillance</div></li>
-          <li class="care-feat"><div class="care-feat-icon">🔧</div><div>Support prioritaire 24/7 et mises à jour IA automatiques</div></li>
-          <li class="care-feat"><div class="care-feat-icon">📜</div><div>Garantie étendue 48 mois + certification durabilité ESG</div></li>
-        </ul>
-      </div>
-      <div class="care-price-box">
-        <p style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-bright);margin-bottom:16px;">Plan mensuel</p>
-        <div class="care-price"><sup>€</sup>9,90 <sub>/ mois</sub></div>
-        <p style="font-size:13px;color:var(--text-muted);margin:14px 0 28px;">Sans engagement · Annulez à tout moment</p>
-        <button class="btn-preorder">Essai gratuit 30 jours →</button>
-        <p style="font-size:12px;color:var(--text-muted);margin-top:8px;">Disponible avec EcoVolt Boost ou Shield</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- INVESTORS -->
-<section id="investors" class="investors-section">
-  <div class="container">
-    <div class="section-eyebrow">Pour les investisseurs & partenaires</div>
-    <h2>Un projet stratégique pour la France et l'UE.</h2>
-    <div class="investors-grid">
-      <div>
-        <p style="color:var(--text-muted);font-size:16px;line-height:1.8;margin-bottom:28px;">EcoVolt crée une nouvelle catégorie — la Gestion Prédictive des Actifs Énergétiques. R&D à Montpellier, production en Roumanie, opportunité d'expansion européenne.</p>
-        <div class="kpi-grid">
-          <div class="kpi-card"><div class="kpi-num">12 Md€</div><div class="kpi-label">Marché total adressable</div></div>
-          <div class="kpi-card"><div class="kpi-num">187%</div><div class="kpi-label">ROI estimé sur 3 ans</div></div>
-          <div class="kpi-card"><div class="kpi-num">350K€</div><div class="kpi-label">Financement Bpifrance</div></div>
-          <div class="kpi-card"><div class="kpi-num">18 mois</div><div class="kpi-label">Délai de retour</div></div>
-        </div>
-        <div style="margin-top:24px;">
-          <a href="mailto:contact@ecovoltt.fr" style="display:inline-flex;align-items:center;gap:8px;color:var(--blue-bright);font-size:14px;text-decoration:none;font-weight:600;">📄 Demander le pitch deck →</a>
-        </div>
-      </div>
-      <div class="investor-contact">
-        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;margin-bottom:6px;">Contactez-nous</h3>
-        <p style="font-size:14px;color:var(--text-muted);margin-bottom:24px;">Investisseurs, partenaires, distributeurs — écrivez-nous directement.</p>
-        <form class="contact-form" id="investorForm" onsubmit="handleInvestorContact(event)">
-          <input type="text" id="investorName" placeholder="Votre nom" required/>
-          <input type="email" id="investorEmail" placeholder="Email professionnel" required/>
-          <input type="text" id="investorOrg" placeholder="Organisation / Fonds (optionnel)"/>
-          <textarea id="investorMsg" rows="4" placeholder="Votre message..."></textarea>
-          <button type="submit" id="investorBtn">Envoyer →</button>
-        </form>
-        <p id="investorOk" style="display:none;color:#4ade80;font-size:14px;margin-top:12px;text-align:center;">✓ Message reçu. Réponse sous 24h.</p>
-        <p id="investorError" style="display:none;color:#f87171;font-size:14px;margin-top:12px;text-align:center;"></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="logo" style="font-size:20px;">EcoVolt</div>
-        <p>Écosystèmes énergétiques intelligents. R&D à Montpellier, France. Production UE (Roumanie).</p>
-        <p style="margin-top:10px;font-size:13px;color:var(--text-muted);">contact@ecovoltt.fr</p>
-      </div>
-      <div class="footer-col">
-        <h4>Produits</h4>
-        <ul>
-          <li><a href="#products">EcoVolt Boost</a></li>
-          <li><a href="#products">EcoVolt Shield</a></li>
-          <li><a href="#products">EcoVolt Core</a></li>
-          <li><a href="#care">EcoVolt Care</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Entreprise</h4>
-        <ul>
-          <li><a href="#investors">Investisseurs</a></li>
-          <li><a href="#donate">Soutenir</a></li>
-          <li><a href="mailto:contact@ecovoltt.fr">Contact</a></li>
-          <li><a href="#">Bpifrance</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Légal</h4>
-        <ul>
-          <li><a href="#">Mentions légales</a></li>
-          <li><a href="#">Confidentialité</a></li>
-          <li><a href="#">CGV</a></li>
-          <li><a href="#">RGPD</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 EcoVolt SAS — Montpellier, France. Tous droits réservés.</p>
-      <div class="footer-links">
-        <a href="https://www.linkedin.com/in/сергей-тюхтя-7302153b7/" target="_blank" title="LinkedIn">LinkedIn</a>
-        <a href="https://www.youtube.com/@EcoVoltT" target="_blank" title="YouTube">YouTube</a>
-        <a href="https://t.me/EcoVoltT" target="_blank" title="Telegram">Telegram</a>
-        <a href="https://www.instagram.com/ecovoltt/" target="_blank" title="Instagram">Instagram</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-// ===== EMAIL ПОДПИСКА (BREVO via Netlify Function) =====
-async function handleEmailBrevo(e) {
-  e.preventDefault();
-  const email = document.getElementById('emailInput').value;
-  const btn = document.querySelector('.email-form button');
-  const errorEl = document.getElementById('emailError');
-  
-  btn.disabled = true;
-  btn.textContent = '⏳ Отправка...';
-  errorEl.style.display = 'none';
-  
-  try {
-    const response = await fetch('/.netlify/functions/brevo', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        type: 'subscribe',
-        email: email
-      })
-    });
-
-    const data = await response.json();
-
-    if (response.ok) {
-      document.getElementById('emailForm').style.display = 'none';
-      document.getElementById('emailSuccess').style.display = 'block';
-      document.getElementById('waitCount').textContent = parseInt(document.getElementById('waitCount').textContent) + 1;
-      console.log('✓ Контакт успешно добавлен в Brevo');
-    } else {
-      throw new Error(data.error || 'Ошибка при отправке');
-    }
-  } catch (err) {
-    console.error('Ошибка Brevo:', err);
-    errorEl.textContent = '❌ ' + err.message;
-    errorEl.style.display = 'block';
-    btn.disabled = false;
-    btn.textContent = 'Rejoindre →';
-  }
-}
-
-// ===== КОНТАКТНАЯ ФОРМА ИНВЕСТОРОВ (BREVO via Netlify Function) =====
-async function handleInvestorContact(e) {
-  e.preventDefault();
-  
-  const name = document.getElementById('investorName').value;
-  const email = document.getElementById('investorEmail').value;
-  const org = document.getElementById('investorOrg').value;
-  const msg = document.getElementById('investorMsg').value;
-  const btn = document.getElementById('investorBtn');
-  const errorEl = document.getElementById('investorError');
-  
-  btn.disabled = true;
-  btn.textContent = '⏳ Отправка...';
-  errorEl.style.display = 'none';
-  
-  try {
-    const response = await fetch('/.netlify/functions/brevo', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        type: 'investor',
-        email: email,
-        name: name,
-        org: org,
-        message: msg
-      })
-    });
-
-    const data = await response.json();
-
-    if (response.ok) {
-      document.getElementById('investorForm').style.display = 'none';
-      document.getElementById('investorOk').style.display = 'block';
-      console.log('✓ Email отправлен успешно');
-    } else {
-      throw new Error(data.error || 'Ошибка при отправке email');
-    }
-    
-  } catch (err) {
-    console.error('Ошибка:', err);
-    errorEl.textContent = '❌ ' + err.message;
-    errorEl.style.display = 'block';
-    btn.disabled = false;
-    btn.textContent = 'Envoyer →';
-  }
-}
-
-// ===== ПОЖЕРТВОВАНИЯ =====
-const donateLinks = {
-  '10': 'https://buy.stripe.com/7sY14mfne5Se2uwd3U8Vi02',
-  '25': 'https://buy.stripe.com/9B67sK2As80m1qs1lc8Vi01',
-  '50': 'https://buy.stripe.com/00w4gyfnea8u6KMd3U8Vi03',
-  '100': 'https://buy.stripe.com/cNi14mb6Ybcyede1lc8Vi04'
-};
-
-function setDonate(btn, amount) {
-  document.querySelectorAll('.donate-btn-amount').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('donateAmount').value = amount;
-  document.getElementById('donateLink').textContent = '💚 Soutenir EcoVolt — ' + amount + '€';
-  if(donateLinks[amount]) {
-    document.getElementById('donateLink').href = donateLinks[amount];
-  }
-}
-
-document.getElementById('donateAmount').addEventListener('input', function() {
-  const v = this.value;
-  document.querySelectorAll('.donate-btn-amount').forEach(b => b.classList.remove('active'));
-  if(v) document.getElementById('donateLink').textContent = '💚 Soutenir EcoVolt — ' + v + '€';
-});
-
-// ===== UI =====
-function scrollTo(id) {
-  const elem = document.getElementById(id);
-  if(elem) elem.scrollIntoView({behavior:'smooth'});
-}
-
-window.addEventListener('scroll', () => {
-  document.querySelector('nav').style.background = window.scrollY > 60 ? 'rgba(5,20,13,0.98)' : 'rgba(5,20,13,0.82)';
-});
-
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
-  });
-});
-</script>
-</body>
-</html>
+  .footer-brand p { color: var(--text-muted); font-size: 14px; margin-top: 12px; line-height: 1.7; max-width: 260px; }\n  .footer-col h4 { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 16px; }\n  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }\n  .footer-col ul a { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color .2s; }\n  .footer-col ul a:hover { color: var(--blue-bright); }\n  .footer-bottom { border-top: 1px solid var(--border); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }\n  .footer-bottom p { color: var(--text-muted); font-size: 13px; }\n  .footer-links { display: flex; gap: 24px; }\n  .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 13px; transition: color .2s; }\n  .footer-links a:hover { color: #fff; }\n  .pre-feats { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }\n  .pre-feats li { display: flex; gap: 10px; font-size: 15px; align-items: flex-start; }\n  .pre-feats li::before { content: '→'; color: var(--blue); font-weight: 700; flex-shrink: 0; }\n  @media (max-width: 900px) {\n    .nav-links { display: none; }\n    .stats-inner, .products-grid, .preorder-grid, .donate-inner, .investors-grid, .care-inner, .footer-grid { grid-template-columns: 1fr; }\n    .container { padding: 0 24px; }\n    section { padding: 64px 0; }\n    .hero-content { padding: 60px 24px; }\n    .care-inner, .donate-inner { padding: 36px 24px; }\n    h1 { font-size: 38px; }\n  }\n</style>\n</head>\n<body>\n\n<!-- NAV -->\n<nav>\n  <div class=\"nav-inner\">\n    <a class=\"logo\" href=\"#\">EcoVolt</a>\n    <ul class=\"nav-links\">\n      <li><a href=\"#products\">Produits</a></li>\n      <li><a href=\"#preorder\">Pré-commande</a></li>\n      <li><a href=\"#donate\">Soutenir</a></li>\n      <li><a href=\"#investors\">Investisseurs</a></li>\n      <li><a href=\"#care\">Care</a></li>\n    </ul>\n    <a href=\"#preorder\" class=\"btn-nav\">Pré-commander →</a>\n  </div>\n</nav>\n\n<!-- HERO -->\n<section class=\"hero\">\n  <div class=\"hero-bg-img\"></div>\n  <div class=\"hero-overlay\"></div>\n  <div class=\"hero-glow\"></div>\n  <div class=\"hero-grid\"></div>\n  <div class=\"hero-content\">\n    <div class=\"pill\"><div class=\"pill-dot\"></div>Deep-Tech Battery Intelligence · Montpellier, France 🇫🇷</div>\n    <h1>Intelligence au Cœur de <span class=\"accent\">Chaque Batterie.</span></h1>\n    <p class=\"hero-sub\">EcoVolt prolonge la durée de vie de vos batteries de 2 à 3 fois grâce à notre IA auto-apprenante. Arrêtez de remplacer — commencez à optimiser.</p>\n\n    <div class=\"email-wrap\">\n      <p class=\"email-label\">📬 Rejoignez la liste d'attente — soyez le premier informé du lancement :</p>\n      <form class=\"email-form\" id=\"emailForm\" onsubmit=\"handleEmailBrevo(event)\">\n        <input type=\"email\" id=\"emailInput\" placeholder=\"votre@email.com\" required/>\n        <button type=\"submit\" id=\"emailBtn\">Rejoindre →</button>\n      </form>\n      <p class=\"email-note\">Déjà <strong id=\"waitCount\">247</strong> personnes inscrites. Sans spam.</p>\n      <p class=\"email-success\" id=\"emailSuccess\">✓ Vous êtes sur la liste ! Vérifiez votre email.</p>\n      <p class=\"email-error\" id=\"emailError\"></p>\n      <div class=\"counter-badge\"><span></span>Liste active — Ukraine & Roumanie & France</div>\n    </div>\n\n    <div style=\"display:flex;gap:16px;flex-wrap:wrap;\">\n      <button onclick=\"scrollTo('preorder')\" style=\"background:var(--blue);color:#001a2e;border:none;border-radius:12px;padding:16px 32px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;cursor:pointer;transition:all .2s;\">Pré-commander</button>\n      <button onclick=\"scrollTo('products')\" style=\"background:transparent;color:var(--text);border:1px solid var(--border);border-radius:12px;padding:16px 32px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;cursor:pointer;transition:all .2s;\">Voir l'écosystème</button>\n    </div>\n  </div>\n</section>\n\n<!-- STATS -->\n<div class=\"stats-bar\">\n  <div class=\"stats-inner\">\n    <div class=\"stat-item\">\n      <div class=\"stat-icon\">♻️</div>\n      <div><div class=\"stat-num\">60% moins</div><div class=\"stat-label\">de déchets électroniques</div></div>\n    </div>\n    <div class=\"stat-item\">\n      <div class=\"stat-icon\">💶</div>\n      <div><div class=\"stat-num\">800€ économisés</div><div class=\"stat-label\">par foyer par an en moyenne</div></div>\n    </div>\n    <div class=\"stat-item\">\n      <div class=\"stat-icon\">⚡</div>\n      <div><div class=\"stat-num\">×2–3 plus long</div><div class=\"stat-label\">durée de vie des batteries</div></div>\n    </div>\n  </div>\n</div>\n\n<!-- PRODUCTS -->\n<section id=\"products\">\n  <div class=\"container\">\n    <div class=\"section-eyebrow\">L'écosystème EcoVolt</div>\n    <h2>Quatre produits. Un seul cerveau.</h2>\n    <p class=\"section-desc\">Chaque appareil EcoVolt communique via notre IA pour maximiser la durée de vie de vos batteries.</p>\n    <div class=\"products-grid\">\n\n      <a href=\"./boost.html\" class=\"product-card\">\n        <div class=\"product-img\">\n          <img src=\"data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 220'%3E%3Crect fill='%230D2A1C' width='400' height='220'/%3E%3Ctext x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='20' fill='%238aceff'%3EEcoVolt Boost%3C/text%3E%3C/svg%3E\" alt=\"EcoVolt Boost\"/>\n          <div class=\"product-img-overlay\"></div>\n          <div class=\"product-img-badge\"><i></i>MVP disponible</div>\n        </div>\n        <div class=\"product-body\">\n          <div class=\"product-name\">EcoVolt Boost</div>\n          <div class=\"product-tag\">Le chargeur IA</div>\n          <p class=\"product-desc\">Analyse votre batterie en 48h et optimise chaque cycle de charge. Prolonge la vie de votre batterie d'au moins 80% dès la première semaine.</p>\n          <ul class=\"product-feats\">\n            <li>Diagnostic prédictif SoH en temps réel</li>\n            <li>Charge adaptative 0–60V / 0–10A</li>\n            <li>Mises à jour OTA automatiques</li>\n          </ul>\n          <div class=\"btn-card\">Pré-commander</div>\n        </div>\n      </a>\n\n      <a href=\"./shield.html\" class=\"product-card\">\n        <div class=\"product-img\">\n          <img src=\"data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 220'%3E%3Crect fill='%230D2A1C' width='400' height='220'/%3E%3Ctext x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='20' fill='%238aceff'%3EEcoVolt Shield%3C/text%3E%3C/svg%3E\" alt=\"EcoVolt Shield\"/>\n          <div class=\"product-img-overlay\"></div>\n          <div class=\"product-img-badge\"><i></i>Real-time Monitoring</div>\n        </div>\n        <div class=\"product-body\">\n          <div class=\"product-name\">EcoVolt Shield</div>\n          <div class=\"product-tag\">Le relais intelligent</div>\n          <p class=\"product-desc\">Commutation ultra-rapide (<20ms) entre réseau et secours. Protège vos équipements contre 99% des surtensions et micro-coupures.</p>\n          <ul class=\"product-feats\">\n            <li>Commutation <20ms sans interruption</li>\n            <li>Surveillance qualité réseau 24/7</li>\n            <li>Relais 30A, 250VAC</li>\n          </ul>\n          <div class=\"btn-card\">Pré-commander</div>\n        </div>\n      </a>\n\n      <a href=\"./core.html\" class=\"product-card\">\n        <div class=\"product-img\">\n          <img src=\"data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 220'%3E%3Crect fill='%230D2A1C' width='400' height='220'/%3E%3Ctext x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='20' fill='%238aceff'%3EEcoVolt Core%3C/text%3E%3C/svg%3E\" alt=\"EcoVolt Core\"/>\n          <div class=\"product-img-overlay\"></div>\n          <div class=\"product-img-badge\"><i></i>Predictive Analytics</div>\n        </div>\n        <div class=\"product-body\">\n          <div class=\"product-name\">EcoVolt Core</div>\n          <div class=\"product-tag\">Le cerveau de l'écosystème</div>\n          <p class=\"product-desc\">Hub central IA qui coordonne tous vos appareils EcoVolt. Prévoit votre consommation sur 24–48h et optimise automatiquement votre énergie.</p>\n          <ul class=\"product-feats\">\n            <li>IA locale + synchronisation cloud</li>\n            <li>Zigbee 3.0, Wi-Fi 6, LTE-M</li>\n            <li>Intégration Home Assistant</li>\n          </ul>\n          <div class=\"btn-card\">Rejoindre la liste d'attente</div>\n        </div>\n      </a>\n    </div>\n  </div>\n</section>\n\n<!-- PREORDER -->\n<section id=\"preorder\" class=\"preorder-section\">\n  <div class=\"container\">\n    <div class=\"preorder-grid\">\n      <div>\n        <div class=\"section-eyebrow\">Pré-commande · Offre de lancement</div>\n        <h2>Soyez parmi les 200 premiers.</h2>\n        <p class=\"section-desc\">Prix de lancement exclusif + 3 mois EcoVolt Care offerts + livraison prioritaire dès la production.</p>\n        <ul class=\"pre-feats\">\n          <li>Prix réduit de 50€ par rapport au prix final</li>\n          <li>Livraison prioritaire dès la production (Q3 2025)</li>\n          <li>3 mois d'abonnement EcoVolt Care offerts</li>\n          <li>Accès au groupe bêta-testeurs privé</li>\n          <li>Remboursement complet si délai non respecté</li>\n        </ul>\n        <div style=\"margin-top:32px;padding:20px;background:rgba(0,166,237,0.06);border:1px solid rgba(0,166,237,0.15);border-radius:14px;\">\n          <p style=\"font-size:13px;color:var(--text-muted);\">🔒 Paiement 100% sécurisé</p>\n          <p style=\"font-size:14px;margin-top:6px;\">Europe & Roumanie via <strong>Stripe</strong> · Ukraine via <strong>Fondy</strong></p>\n        </div>\n      </div>\n      <div class=\"preorder-card\">\n        <div class=\"early-badge\">⚡ Early Bird — Places limitées</div>\n        <p class=\"price-old\">299€</p>\n        <div class=\"price-main\">249€</div>\n        <p class=\"price-sub\">EcoVolt Boost — Chargeur IA</p>\n        <a href=\"https://buy.stripe.com/bJecN48YQ0xU6KMd3U8Vi00\" class=\"btn-preorder\" target=\"_blank\">💳 Commander — Europe / Roumanie</a>\n        <a href=\"https://fondy.eu/00000000001\" class=\"btn-fondy\" target=\"_blank\">🇺🇦 Замовити — Україна (Fondy)</a>\n        <p class=\"preorder-note\">🔒 Sans frais cachés · Remboursement garanti</p>\n        <div class=\"progress-wrap\">\n          <div class=\"progress-top\">\n            <span style=\"font-size:13px;color:var(--text-muted);\">Places réservées</span>\n            <span style=\"font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--blue-bright);\">57 / 200</span>\n          </div>\n          <div class=\"progress-bar\"><div class=\"progress-fill\"></div></div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n\n<!-- DONATE -->\n<section id=\"donate\" class=\"donate-section\">\n  <div class=\"container\">\n    <div class=\"donate-inner\">\n      <div style=\"position:relative;z-index:1;\">\n        <div class=\"section-eyebrow\">Soutenir le projet</div>\n        <h2>Aidez-nous à construire l'avenir de l'énergie.</h2>\n        <p class=\"section-desc\">Chaque don va directement au développement R&D d'EcoVolt — algorithmes IA, prototypes, certifications CE.</p>\n        <div class=\"donate-impact\">\n          <div class=\"impact-item\">\n            <div class=\"impact-emoji\">🔬</div>\n            <div class=\"impact-title\">R&D IA</div>\n            <div class=\"impact-desc\">Développement des algorithmes AI-BMS à Montpellier</div>\n          </div>\n          <div class=\"impact-item\">\n            <div class=\"impact-emoji\">🏭</div>\n            <div class=\"impact-title\">Prototypes</div>\n            <div class=\"impact-desc\">Fabrication des premiers appareils en Roumanie</div>\n          </div>\n          <div class=\"impact-item\">\n            <div class=\"impact-emoji\">📋</div>\n            <div class=\"impact-title\">Certification CE</div>\n            <div class=\"impact-desc\">Entrée officielle sur le marché européen</div>\n          </div>\n          <div class=\"impact-item\">\n            <div class=\"impact-emoji\">🌱</div>\n            <div class=\"impact-title\">Impact vert</div>\n            <div class=\"impact-desc\">Réduction des déchets électroniques en Europe</div>\n          </div>\n        </div>\n      </div>\n      <div style=\"position:relative;z-index:1;\">\n        <p style=\"font-size:14px;color:var(--text-muted);margin-bottom:16px;\">Choisissez un montant :</p>\n        <div class=\"donate-amounts\">\n          <button class=\"donate-btn-amount\" onclick=\"setDonate(this,'10')\">10€</button>\n          <button class=\"donate-btn-amount active\" onclick=\"setDonate(this,'25')\">25€</button>\n          <button class=\"donate-btn-amount\" onclick=\"setDonate(this,'50')\">50€</button>\n          <button class=\"donate-btn-amount\" onclick=\"setDonate(this,'100')\">100€</button>\n        </div>\n        <div class=\"donate-custom\">\n          <input type=\"number\" id=\"donateAmount\" placeholder=\"Autre montant (€)\" value=\"25\" min=\"1\"/>\n        </div>\n        <a href=\"https://buy.stripe.com/9B67sK2As80m1qs1lc8Vi01\" class=\"btn-donate\" target=\"_blank\" id=\"donateLink\">💚 Soutenir EcoVolt — 25€</a>\n        <p class=\"donate-secure\">🔒 Paiement sécurisé via Stripe · Reçu envoyé par email</p>\n        <div style=\"margin-top:20px;padding:14px 18px;background:rgba(0,0,0,0.2);border-radius:12px;border:1px solid var(--border);\">\n          <p style=\"font-size:13px;color:var(--text-muted);\">🇺🇦 Донат з України:</p>\n          <a href=\"https://fondy.eu/00000000002\" style=\"color:var(--blue-bright);font-size:14px;font-weight:600;text-decoration:none;\" target=\"_blank\">Підтримати через Fondy →</a>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n\n<!-- CARE -->\n<section id=\"care\" class=\"care-section\">\n  <div class=\"container\">\n    <div class=\"care-inner\">\n      <div>\n        <div class=\"section-eyebrow\">Abonnement</div>\n        <h2>EcoVolt Care</h2>\n        <p style=\"color:var(--text-muted);font-size:16px;margin-top:10px;\">Votre ingénieur énergie numérique personnel. Surveillance continue, rapports prédictifs, garantie étendue.</p>\n        <ul class=\"care-feats\">\n          <li class=\"care-feat\"><div class=\"care-feat-icon\">📊</div><div>Rapport mensuel de santé de vos batteries avec recommandations personnalisées</div></li>\n          <li class=\"care-feat\"><div class=\"care-feat-icon\">🔔</div><div>Alertes prédictives 15+ jours avant toute défaillance</div></li>\n          <li class=\"care-feat\"><div class=\"care-feat-icon\">🔧</div><div>Support prioritaire 24/7 et mises à jour IA automatiques</div></li>\n          <li class=\"care-feat\"><div class=\"care-feat-icon\">📜</div><div>Garantie étendue 48 mois + certification durabilité ESG</div></li>\n        </ul>\n      </div>\n      <div class=\"care-price-box\">\n        <p style=\"font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-bright);margin-bottom:16px;\">Plan mensuel</p>\n        <div class=\"care-price\"><sup>€</sup>9,90 <sub>/ mois</sub></div>\n        <p style=\"font-size:13px;color:var(--text-muted);margin:14px 0 28px;\">Sans engagement · Annulez à tout moment</p>\n        <button class=\"btn-preorder\">Essai gratuit 30 jours →</button>\n        <p style=\"font-size:12px;color:var(--text-muted);margin-top:8px;\">Disponible avec EcoVolt Boost ou Shield</p>\n      </div>\n    </div>\n  </div>\n</section>\n\n<!-- INVESTORS -->\n<section id=\"investors\" class=\"investors-section\">\n  <div class=\"container\">\n    <div class=\"section-eyebrow\">Pour les investisseurs & partenaires</div>\n    <h2>Un projet stratégique pour la France et l'UE.</h2>\n    <div class=\"investors-grid\">\n      <div>\n        <p style=\"color:var(--text-muted);font-size:16px;line-height:1.8;margin-bottom:28px;\">EcoVolt crée une nouvelle catégorie — la Gestion Prédictive des Actifs Énergétiques. R&D à Montpellier, production en Roumanie, opportunité d'expansion européenne.</p>\n        <div class=\"kpi-grid\">\n          <div class=\"kpi-card\"><div class=\"kpi-num\">12 Md€</div><div class=\"kpi-label\">Marché total adressable</div></div>\n          <div class=\"kpi-card\"><div class=\"kpi-num\">187%</div><div class=\"kpi-label\">ROI estimé sur 3 ans</div></div>\n          <div class=\"kpi-card\"><div class=\"kpi-num\">350K€</div><div class=\"kpi-label\">Financement Bpifrance</div></div>\n          <div class=\"kpi-card\"><div class=\"kpi-num\">18 mois</div><div class=\"kpi-label\">Délai de retour</div></div>\n        </div>\n        <div style=\"margin-top:24px;\">\n          <a href=\"mailto:contact@ecovoltt.fr\" style=\"display:inline-flex;align-items:center;gap:8px;color:var(--blue-bright);font-size:14px;text-decoration:none;font-weight:600;\">📄 Demander le pitch deck →</a>\n        </div>\n      </div>\n      <div class=\"investor-contact\">\n        <h3 style=\"font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;margin-bottom:6px;\">Contactez-nous</h3>\n        <p style=\"font-size:14px;color:var(--text-muted);margin-bottom:24px;\">Investisseurs, partenaires, distributeurs — écrivez-nous directement.</p>\n        <form class=\"contact-form\" id=\"investorForm\" onsubmit=\"handleInvestorContact(event)\">\n          <input type=\"text\" id=\"investorName\" placeholder=\"Votre nom\" required/>\n          <input type=\"email\" id=\"investorEmail\" placeholder=\"Email professionnel\" required/>\n          <input type=\"text\" id=\"investorOrg\" placeholder=\"Organisation / Fonds (optionnel)\"/>\n          <textarea id=\"investorMsg\" rows=\"4\" placeholder=\"Votre message...\"></textarea>\n          <button type=\"submit\" id=\"investorBtn\">Envoyer →</button>\n        </form>\n        <p id=\"investorOk\" style=\"display:none;color:#4ade80;font-size:14px;margin-top:12px;text-align:center;\">✓ Message reçu. Réponse sous 24h.</p>\n        <p id=\"investorError\" style=\"display:none;color:#f87171;font-size:14px;margin-top:12px;text-align:center;\"></p>\n      </div>\n    </div>\n  </div>\n</section>\n\n<!-- FOOTER -->\n<footer>\n  <div class=\"container\">\n    <div class=\"footer-grid\">\n      <div class=\"footer-brand\">\n        <div class=\"logo\" style=\"font-size:20px;\">EcoVolt</div>\n        <p>Écosystèmes énergétiques intelligents. R&D à Montpellier, France. Production UE (Roumanie).</p>\n        <p style=\"margin-top:10px;font-size:13px;color:var(--text-muted);\">contact@ecovoltt.fr</p>\n      </div>\n      <div class=\"footer-col\">\n        <h4>Produits</h4>\n        <ul>\n          <li><a href=\"#products\">EcoVolt Boost</a></li>\n          <li><a href=\"#products\">EcoVolt Shield</a></li>\n          <li><a href=\"#products\">EcoVolt Core</a></li>\n          <li><a href=\"#care\">EcoVolt Care</a></li>\n        </ul>\n      </div>\n      <div class=\"footer-col\">\n        <h4>Entreprise</h4>\n        <ul>\n          <li><a href=\"#investors\">Investisseurs</a></li>\n          <li><a href=\"#donate\">Soutenir</a></li>\n          <li><a href=\"mailto:contact@ecovoltt.fr\">Contact</a></li>\n          <li><a href=\"#\">Bpifrance</a></li>\n        </ul>\n      </div>\n      <div class=\"footer-col\">\n        <h4>Légal</h4>\n        <ul>\n          <li><a href=\"#\">Mentions légales</a></li>\n          <li><a href=\"#\">Confidentialité</a></li>\n          <li><a href=\"#\">CGV</a></li>\n          <li><a href=\"#\">RGPD</a></li>\n        </ul>\n      </div>\n    </div>\n    <div class=\"footer-bottom\">\n      <p>© 2025 EcoVolt SAS — Montpellier, France. Tous droits réservés.</p>\n      <div class=\"footer-links\">\n        <a href=\"https://www.linkedin.com/in/сергей-тюхтя-7302153b7/\" target=\"_blank\" title=\"LinkedIn\">LinkedIn</a>\n        <a href=\"https://www.youtube.com/@EcoVoltT\" target=\"_blank\" title=\"YouTube\">YouTube</a>\n        <a href=\"https://t.me/EcoVoltT\" target=\"_blank\" title=\"Telegram\">Telegram</a>\n        <a href=\"https://www.instagram.com/ecovoltt/\" target=\"_blank\" title=\"Instagram\">Instagram</a>\n      </div>\n    </div>\n  </div>\n</footer>\n\n<script>\nasync function handleEmailBrevo(e) {\n  e.preventDefault();\n  const email = document.getElementById('emailInput').value;\n  const btn = document.querySelector('.email-form button');\n  const errorEl = document.getElementById('emailError');\n  \n  btn.disabled = true;\n  btn.textContent = '⏳ Отправка...';\n  errorEl.style.display = 'none';\n  \n  try {\n    const response = await fetch('/.netlify/functions/brevo', {\n      method: 'POST',\n      headers: {'Content-Type': 'application/json'},\n      body: JSON.stringify({type: 'subscribe', email: email})\n    });\n    const data = await response.json();\n    if (response.ok) {\n      document.getElementById('emailForm').style.display = 'none';\n      document.getElementById('emailSuccess').style.display = 'block';\n      document.getElementById('waitCount').textContent = parseInt(document.getElementById('waitCount').textContent) + 1;\n    } else {\n      throw new Error(data.error || 'Ошибка при отправке');\n    }\n  } catch (err) {\n    errorEl.textContent = '❌ ' + err.message;\n    errorEl.style.display = 'block';\n    btn.disabled = false;\n    btn.textContent = 'Rejoindre →';\n  }\n}\n\nasync function handleInvestorContact(e) {\n  e.preventDefault();\n  const name = document.getElementById('investorName').value;\n  const email = document.getElementById('investorEmail').value;\n  const org = document.getElementById('investorOrg').value;\n  const msg = document.getElementById('investorMsg').value;\n  const btn = document.getElementById('investorBtn');\n  const errorEl = document.getElementById('investorError');\n  \n  btn.disabled = true;\n  btn.textContent = '⏳ Отправка...';\n  errorEl.style.display = 'none';\n  \n  try {\n    const response = await fetch('/.netlify/functions/brevo', {\n      method: 'POST',\n      headers: {'Content-Type': 'application/json'},\n      body: JSON.stringify({type: 'investor', email, name, org, message: msg})\n    });\n    const data = await response.json();\n    if (response.ok) {\n      document.getElementById('investorForm').style.display = 'none';\n      document.getElementById('investorOk').style.display = 'block';\n    } else {\n      throw new Error(data.error || 'Ошибка при отправке email');\n    }\n  } catch (err) {\n    errorEl.textContent = '❌ ' + err.message;\n    errorEl.style.display = 'block';\n    btn.disabled = false;\n    btn.textContent = 'Envoyer →';\n  }\n}\n\nconst donateLinks = {'10': 'https://buy.stripe.com/7sY14mfne5Se2uwd3U8Vi02','25': 'https://buy.stripe.com/9B67sK2As80m1qs1lc8Vi01','50': 'https://buy.stripe.com/00w4gyfnea8u6KMd3U8Vi03','100': 'https://buy.stripe.com/cNi14mb6Ybcyede1lc8Vi04'};\n\nfunction setDonate(btn, amount) {\n  document.querySelectorAll('.donate-btn-amount').forEach(b => b.classList.remove('active'));\n  btn.classList.add('active');\n  document.getElementById('donateAmount').value = amount;\n  document.getElementById('donateLink').textContent = '💚 Soutenir EcoVolt — ' + amount + '€';\n  if(donateLinks[amount]) document.getElementById('donateLink').href = donateLinks[amount];\n}\n\ndocument.getElementById('donateAmount').addEventListener('input', function() {\n  const v = this.value;\n  document.querySelectorAll('.donate-btn-amount').forEach(b => b.classList.remove('active'));\n  if(v) document.getElementById('donateLink').textContent = '💚 Soutenir EcoVolt — ' + v + '€';\n});\n\nfunction scrollTo(id) {\n  const elem = document.getElementById(id);\n  if(elem) elem.scrollIntoView({behavior:'smooth'});\n}\n\nwindow.addEventListener('scroll', () => {\n  document.querySelector('nav').style.background = window.scrollY > 60 ? 'rgba(5,20,13,0.98)' : 'rgba(5,20,13,0.82)';\n});\n\ndocument.querySelectorAll('a[href^=\"#\"]').forEach(a => {\n  a.addEventListener('click', e => {\n    const t = document.querySelector(a.getAttribute('href'));\n    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}\n  });\n});\n</script>\n</body>\n</html>\n
