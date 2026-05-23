@@ -39,10 +39,28 @@ function makeRequest(method, path, data = null) {
       res.on('data', chunk => body += chunk);
       res.on('end', () => {
         try {
-          const parsed = body ? JSON.parse(body) : {};
+          // Only try to parse JSON if content-type is application/json
+          const contentType = res.headers['content-type'] || '';
+          let parsed = {};
+          
+          if (contentType.includes('application/json') && body) {
+            parsed = JSON.parse(body);
+          } else if (body && !contentType.includes('text/html')) {
+            // Try to parse anyway if not HTML
+            try {
+              parsed = JSON.parse(body);
+            } catch (e) {
+              parsed = { error: body.substring(0, 200) };
+            }
+          } else if (contentType.includes('text/html')) {
+            // HTML error response
+            parsed = { error: 'Server returned HTML error' };
+          }
+          
           resolve({ status: res.statusCode, body: parsed });
         } catch (e) {
-          resolve({ status: res.statusCode, body: { error: body } });
+          console.error('Parse error:', e, 'Body:', body.substring(0, 200));
+          resolve({ status: res.statusCode, body: { error: 'Invalid response format: ' + body.substring(0, 100) } });
         }
       });
     });
@@ -67,7 +85,7 @@ async function handleSubscribe(email) {
     });
 
     if (response.status >= 400) {
-      throw new Error(response.body.message || 'Erreur lors de la souscription');
+      throw new Error(response.body.message || response.body.error || `Erreur API (${response.status})`);
     }
 
     return {
@@ -114,7 +132,7 @@ async function handleContact(name, email, organization, message) {
     });
 
     if (response.status >= 400) {
-      throw new Error(response.body.message || 'Erreur lors de l\'envoi');
+      throw new Error(response.body.message || response.body.error || `Erreur API (${response.status})`);
     }
 
     // Subscribe sender to list
